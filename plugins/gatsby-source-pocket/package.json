@@ -1,0 +1,16 @@
+{
+  "name": "gatsby-source-pocket",
+  "version": "",
+  "description": "get pocket articles as a datasource",
+  "main": "gatsby-node.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "date-fns": "^1.29.0",
+    "gatsby-node-helpers": "^0.1.3",
+    "node-getpocket": "^1.0.0"
+  }
+}

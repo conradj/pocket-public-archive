@@ -1,0 +1,27 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/conrad/.nvm/versions/node/v8.9.3/bin/node',
+1 verbose cli   '/Users/conrad/node_modules/.bin/npm',
+1 verbose cli   'install' ]
+2 info using npm@3.3.6
+3 info using node@v8.9.3
+4 verbose stack Error: Cannot find module 'internal/util/types'
+4 verbose stack     at Function.Module._resolveFilename (module.js:536:15)
+4 verbose stack     at Function.Module._load (module.js:466:25)
+4 verbose stack     at Module.require (module.js:579:17)
+4 verbose stack     at require (internal/module.js:11:18)
+4 verbose stack     at evalmachine.<anonymous>:31:26
+4 verbose stack     at Object.<anonymous> (/Users/conrad/node_modules/npm/node_modules/cmd-shim/node_modules/graceful-fs/fs.js:11:1)
+4 verbose stack     at Module._compile (module.js:635:30)
+4 verbose stack     at Object.Module._extensions..js (module.js:646:10)
+4 verbose stack     at Module.load (module.js:554:32)
+4 verbose stack     at tryModuleLoad (module.js:497:12)
+5 verbose cwd /Users/conrad/Sites/conradjreads
+6 error Darwin 17.3.0
+7 error argv "/Users/conrad/.nvm/versions/node/v8.9.3/bin/node" "/Users/conrad/node_modules/.bin/npm" "install"
+8 error node v8.9.3
+9 error npm  v3.3.6
+10 error code MODULE_NOT_FOUND
+11 error Cannot find module 'internal/util/types'
+12 error If you need help, you may report this error at:
+12 error     <https://github.com/npm/npm/issues>
+13 verbose exit [ 1, true ]

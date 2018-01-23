@@ -1,0 +1,47 @@
+.article {
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  position: relative;
+  padding-bottom: 4rem;
+}
+
+.article h1 {
+  font-size: 1.5rem;
+  font-family: georgia, serif;
+}
+
+.article-headline h1 {
+  font-size: 2rem;
+}
+
+@media (min-width: 460px) {
+  .article-headline {
+    grid-column: 1 / 3;
+  }
+}
+
+@media (min-width: 660px) {
+  .article-headline {
+    grid-column: 1 / 4;
+    /* autoprefixer: off */
+    /* grid-row: 1 / 3; */
+  }
+}
+
+.article-metadata {
+  position: absolute;
+  bottom: 0;
+}
+
+.article-link {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #808080;
+  padding-bottom: 0.5rem;
+}
+
+.article-link-favicon {
+  margin-right: 0.25rem;
+}
