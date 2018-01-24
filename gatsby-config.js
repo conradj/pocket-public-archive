@@ -15,5 +15,6 @@ module.exports = {
         apiMaxRecordsToReturn: process.env.API_MAX_RECORDS
       }
     }
-  ]
+  ],
+  pathPrefix: `/pocket-public-archive`
 };
