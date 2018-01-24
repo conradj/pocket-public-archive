@@ -16,14 +16,16 @@ Run `node plugins/gatsby-source-pocket/node_modules/node-getpocket/authorise --c
 (For more info on this process see https://github.com/vicchi/node-getpocket)
 
 There are two other `.env` variables, set here because you might want to have different values between dev and prod:
-`WEEKS_OF_HISTORY` will set the number of past weeks that will appear in your archive
-`API_MAX_RECORDS` will limit the number of records to return, to stop you hitting your api limit. If the number of articles you've archived in the last `WEEKS_OF_HISTORY` is more than this number then the site may exhibit weird behavior.
+
+* `WEEKS_OF_HISTORY` will set the number of past weeks that will appear in your archive
+
+* `API_MAX_RECORDS` will limit the number of records to return, to stop you hitting your api limit. If the number of articles you've archived in the last `WEEKS_OF_HISTORY` is more than this number then the site may exhibit weird behavior.
 
 Finally, run `gatsby develop` to generate your site
 
 ## Deploy
 
-tbd full details but deploy via circle CI then schedule rebuild weekly to get a new Pocket history page for that week
+tbd full details but deploy via circle CI no wercker then schedule rebuild weekly to get a new Pocket history page for that week
 
 ### FAQS
 
@@ -42,6 +44,6 @@ tbd full details but deploy via circle CI then schedule rebuild weekly to get a 
 4. What plans have you got for this?
 
    Loads! Awesome stats, tags, filter by domain, subject etc. Social stuff, sharing etc. One day it will be a social network, probably bigger than Facebook.
-But, mostly if you're a big Pocket user, I'd be interested in finding out your use case.
+   But, mostly if you're a big Pocket user, I'd be interested in finding out your use case.
 
 Lastly, now I've done this, it turns out I mostly read about Tech hiring methods, Facebook/Amazon, Donald Trump and cryptocurrency so maybe it's got an audience of one. Maybe your archive will be more interesting - send me a link!
