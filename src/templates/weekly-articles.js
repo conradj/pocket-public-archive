@@ -16,9 +16,9 @@ class WeeklyArticlesTemplate extends React.Component {
       return (
         <div>
           <nav>
-            <a href={lastWeek}>Previous Week</a>
+            <a href={`../${lastWeek}`}>Previous Week</a>
             {nextWeek < new Date().getTime() / 1000 ? (
-              <a className="next-week" href={nextWeek}>
+              <a className="next-week" href={`../${nextWeek}`}>
                 Next Week
               </a>
             ) : null}
