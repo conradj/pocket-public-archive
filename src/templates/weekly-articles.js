@@ -67,6 +67,8 @@ export const pageQuery = graphql`
           word_count
           time_read
           readWeek
+          articleDomain
+          domainFavicon
           image {
             item_id
             src

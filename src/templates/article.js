@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./article.css";
-const { URL } = require("url");
 
 class ArticleTemplate extends React.Component {
   render() {
@@ -12,7 +11,9 @@ class ArticleTemplate extends React.Component {
       excerpt,
       url,
       favourite,
-      word_count
+      word_count,
+      articleDomain,
+      domainFavicon
     } = this.props;
     const classNames = ["article"];
     if (index === 0) {
@@ -21,14 +22,6 @@ class ArticleTemplate extends React.Component {
 
     if (index === 1) {
       classNames.push("wide");
-    }
-    //console.log(URL);
-    //const articleDomain = new URL(url).hostname;
-    let articleDomain = "";
-    let domainFavicon;
-    if (URL) {
-      articleDomain = new URL(url).hostname;
-      domainFavicon = `http://s2.googleusercontent.com/s2/favicons?domain_url=${articleDomain}`;
     }
 
     return (
@@ -59,6 +52,8 @@ ArticleTemplate.propTypes = {
   image: PropTypes.object,
   excerpt: PropTypes.string,
   url: PropTypes.string,
+  domainFavicon: PropTypes.string,
+  articleDomain: PropTypes.string,
   favourite: PropTypes.bool,
   word_count: PropTypes.number
 };

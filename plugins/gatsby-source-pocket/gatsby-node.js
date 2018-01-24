@@ -1,9 +1,10 @@
 const startOfWeek = require("date-fns/start_of_week");
 const format = require("date-fns/format");
 const subWeeks = require("date-fns/sub_weeks");
-var getTime = require("date-fns/get_time");
-
+const getTime = require("date-fns/get_time");
+const { URL } = require("url");
 const crypto = require("crypto");
+
 const createContentDigest = obj =>
   crypto
     .createHash("md5")
@@ -79,6 +80,8 @@ exports.sourceNodes = async ({ boundActionCreators, store }, pluginOptions) => {
           }
         : null;
 
+    const articleDomain = new URL(datum.resolved_url).hostname;
+
     const node = createNode({
       // Data for the node.
       id: datum.item_id,
@@ -87,6 +90,8 @@ exports.sourceNodes = async ({ boundActionCreators, store }, pluginOptions) => {
       ),
       url: datum.resolved_url,
       title: datum.resolved_title,
+      articleDomain: articleDomain,
+      domainFavicon: `http://s2.googleusercontent.com/s2/favicons?domain_url=${articleDomain}`,
       favourite: datum.favorite == true,
       favorite: datum.favorite == true,
       excerpt: datum.excerpt,
