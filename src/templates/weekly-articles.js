@@ -5,37 +5,43 @@ const format = require("date-fns/format");
 
 class WeeklyArticlesTemplate extends React.Component {
   render() {
-    const thisWeek = parseInt(
-      this.props.data.allPocketArticle.edges[0].node.readWeek
-    );
-    const nextWeek = thisWeek + 604800;
-    const lastWeek = thisWeek - 604800;
+    if (this.props.data.allPocketArticle) {
+      const thisWeek = parseInt(
+        this.props.data.allPocketArticle.edges[0].node.readWeek
+      );
+      const nextWeek = thisWeek + 604800;
+      const lastWeek = thisWeek - 604800;
 
-    const weekDate = format(new Date(thisWeek * 1000), "Do MMMM YYYY");
-    return (
-      <div>
-        <nav>
-          <a href={lastWeek}>Previous Week</a>
-          {nextWeek < new Date().getTime() / 1000 ? (
-            <a className="next-week" href={nextWeek}>
-              Next Week
-            </a>
-          ) : null}
-        </nav>
-        <h1>Week starting {weekDate}</h1>
+      const weekDate = format(new Date(thisWeek * 1000), "Do MMMM YYYY");
+      return (
+        <div>
+          <nav>
+            <a href={lastWeek}>Previous Week</a>
+            {nextWeek < new Date().getTime() / 1000 ? (
+              <a className="next-week" href={nextWeek}>
+                Next Week
+              </a>
+            ) : null}
+          </nav>
+          <h1>Week starting {weekDate}</h1>
 
-        <ul className="wrapper">
-          {this.props.data.allPocketArticle.edges.map((edge, index) => {
-            let article = edge.node;
-            if (article.title && article.url && article.word_count > 0) {
-              return <ArticleTemplate key={index} {...article} index={index} />;
-            } else {
-              console.warn("Article not loaded", article);
-            }
-          })}
-        </ul>
-      </div>
-    );
+          <ul className="wrapper">
+            {this.props.data.allPocketArticle.edges.map((edge, index) => {
+              let article = edge.node;
+              if (article.title && article.url && article.word_count > 0) {
+                return (
+                  <ArticleTemplate key={index} {...article} index={index} />
+                );
+              } else {
+                //console.warn("Article not loaded", article);
+              }
+            })}
+          </ul>
+        </div>
+      );
+    } else {
+      return <div />;
+    }
   }
 }
 

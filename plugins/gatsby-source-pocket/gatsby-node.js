@@ -66,7 +66,7 @@ exports.sourceNodes = async ({ boundActionCreators, store }, pluginOptions) => {
     pluginOptions
   );
   setPluginStatus({ lastFetched: new Date() });
-
+  console.info("data loaded", data.length);
   // Process data into nodes.
   data.forEach(datum => {
     const image =

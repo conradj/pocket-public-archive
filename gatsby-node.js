@@ -55,32 +55,35 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         if (result.errors) {
           reject(result.errors);
         }
-        // loop through weeks to current week
-        const firstArticleReadTime = parseInt(
-          result.data.allPocketArticle.edges[0].node.time_read
-        );
 
-        let startOfWeekTime = parseInt(
-          format(startOfWeek(new Date(firstArticleReadTime * 1000)), "X")
-        );
+        if (result.data.allPocketArticle.edges) {
+          // loop through weeks to current week
+          const firstArticleReadTime = parseInt(
+            result.data.allPocketArticle.edges[0].node.time_read
+          );
 
-        const nowTime = parseInt(format(new Date(), "X"));
+          let startOfWeekTime = parseInt(
+            format(startOfWeek(new Date(firstArticleReadTime * 1000)), "X")
+          );
 
-        let endOfWeekTime = startOfWeekTime + 604800;
-        let iteration = 0;
+          const nowTime = parseInt(format(new Date(), "X"));
 
-        while (startOfWeekTime < nowTime) {
-          createPage({
-            path: startOfWeekTime,
-            component: weeklyArticlesTemplate,
-            layout: `index`,
-            context: {
-              currentWeekFilter: startOfWeekTime
-            }
-          });
-          // get next week timestamps
-          startOfWeekTime = startOfWeekTime + 604800;
-          endOfWeekTime = endOfWeekTime + 604800;
+          let endOfWeekTime = startOfWeekTime + 604800;
+          let iteration = 0;
+
+          while (startOfWeekTime < nowTime) {
+            createPage({
+              path: startOfWeekTime,
+              component: weeklyArticlesTemplate,
+              layout: `index`,
+              context: {
+                currentWeekFilter: startOfWeekTime
+              }
+            });
+            // get next week timestamps
+            startOfWeekTime = startOfWeekTime + 604800;
+            endOfWeekTime = endOfWeekTime + 604800;
+          }
         }
       })
     );
