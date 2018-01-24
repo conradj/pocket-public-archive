@@ -1,0 +1,2 @@
+webpackJsonp([0x8a20340346b1],{671:function(t,e){t.exports={data:{allPocketArticle:null},pathContext:{currentWeekFilter:1354406400}}}});
+//# sourceMappingURL=path---1354406400-d29294da31f73988ff81.js.map

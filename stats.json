@@ -1,0 +1,64 @@
+{
+  "assetsByChunkName": {
+    "component---src-pages-index-js": [
+      "component---src-pages-index-js-00cc0faf264000c82d0c.js",
+      "component---src-pages-index-js-00cc0faf264000c82d0c.js.map"
+    ],
+    "path---": [
+      "path----557518bd178906f8d58a.js",
+      "path----557518bd178906f8d58a.js.map"
+    ],
+    "path---1515283200": [
+      "path---1515283200-819c385a7120e41615e8.js",
+      "path---1515283200-819c385a7120e41615e8.js.map"
+    ],
+    "path---1514678400": [
+      "path---1514678400-38b9a75407885fa26e18.js",
+      "path---1514678400-38b9a75407885fa26e18.js.map"
+    ],
+    "component---src-layouts-index-js": [
+      "component---src-layouts-index-js-748bd58d95fa48d5539b.js",
+      "component---src-layouts-index-js-748bd58d95fa48d5539b.js.map"
+    ],
+    "path---1516492800": [
+      "path---1516492800-d7c532ec73ee805a60ec.js",
+      "path---1516492800-d7c532ec73ee805a60ec.js.map"
+    ],
+    "path---1515888000": [
+      "path---1515888000-0a61e7e5dba3fe0b2c5a.js",
+      "path---1515888000-0a61e7e5dba3fe0b2c5a.js.map"
+    ],
+    "path---index": [
+      "path---index-a0e39f21c11f6a62c5ab.js",
+      "path---index-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "component---src-pages-404-js": [
+      "component---src-pages-404-js-4503918ea3a16cfcdb75.js",
+      "component---src-pages-404-js-4503918ea3a16cfcdb75.js.map"
+    ],
+    "commons": [
+      "commons-43211b24d1c1daae657e.js",
+      "build-js-styles.css",
+      "commons-43211b24d1c1daae657e.js.map",
+      "build-js-styles.css.map"
+    ],
+    "path---404-html": [
+      "path---404-html-a0e39f21c11f6a62c5ab.js",
+      "path---404-html-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "app": [
+      "app-8b7095fd955bb2e375f2.js",
+      "build-js-styles.css",
+      "app-8b7095fd955bb2e375f2.js.map",
+      "build-js-styles.css.map"
+    ],
+    "component---src-templates-weekly-articles-js": [
+      "component---src-templates-weekly-articles-js-cf4a6c9eac5e9ccb5b9f.js",
+      "component---src-templates-weekly-articles-js-cf4a6c9eac5e9ccb5b9f.js.map"
+    ],
+    "path---404": [
+      "path---404-a0e39f21c11f6a62c5ab.js",
+      "path---404-a0e39f21c11f6a62c5ab.js.map"
+    ]
+  }
+}
