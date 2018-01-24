@@ -28,17 +28,20 @@ tbd full details but deploy via circle CI then schedule rebuild weekly to get a 
 ### FAQS
 
 1. Why have you made this?
+
    I've always wanted a way of easily seeing what I've recently read. Pocket gives you an infinitely scrolling list but I like the idea of a easily navigatable weekly digest.
 
 2. but...isn't it like publishing your browsing history?
+
    Yeah...kind of. I could do with a way of hiding stuff!
 
 3. Why is it a static site?
+
    Reading history doesn't change, so it seems a bit painful to get it from an API, do a load of transformations and stick it in a database, just to read it back out again. [I tried it once](https://github.com/conradj/Reading), and it was quite painful.
 
 4. What plans have you got for this?
+
    Loads! Awesome stats, tags, filter by domain, subject etc. Social stuff, sharing etc. One day it will be a social network, probably bigger than Facebook.
+But, mostly if you're a big Pocket user, I'd be interested in finding out your use case.
 
-But, mostly if you're a big Pocket user, I'd be interested in finding out your use case?
-
-Having done this, it turns out I mostly read about Tech hiring methods, Facebook/Amazon, Donald Trump and cryptocurrency so maybe it's got an audience of one. Maybe your archive will be more interesting - send me a link!
+Lastly, now I've done this, it turns out I mostly read about Tech hiring methods, Facebook/Amazon, Donald Trump and cryptocurrency so maybe it's got an audience of one. Maybe your archive will be more interesting - send me a link!
