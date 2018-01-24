@@ -80,7 +80,10 @@ exports.sourceNodes = async ({ boundActionCreators, store }, pluginOptions) => {
           }
         : null;
 
-    const articleDomain = new URL(datum.resolved_url).hostname;
+    const articleDomain =
+      datum.resolved_url && datum.resolved_url !== ""
+        ? new URL(datum.resolved_url).hostname
+        : "";
 
     const node = createNode({
       // Data for the node.
