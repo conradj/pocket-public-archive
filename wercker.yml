@@ -16,8 +16,8 @@ box: node
 
     # - mongo
     # http://devcenter.wercker.com/docs/services/mongodb.html
-build:
-  # The steps that will be executed on build
+deploy:
+  # The steps that will be executed on deploy
   # Steps make up the actions in your pipeline
   # Read more about steps on our dev center:
   # http://devcenter.wercker.com/docs/steps/index.html
