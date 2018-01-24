@@ -22,8 +22,15 @@ class ArticleTemplate extends React.Component {
     if (index === 1) {
       classNames.push("wide");
     }
-    const articleDomain = new URL(url).hostname;
-    const domainFavicon = `http://s2.googleusercontent.com/s2/favicons?domain_url=${articleDomain}`;
+    //console.log(URL);
+    //const articleDomain = new URL(url).hostname;
+    let articleDomain = "";
+    let domainFavicon;
+    if (URL) {
+      articleDomain = new URL(url).hostname;
+      domainFavicon = `http://s2.googleusercontent.com/s2/favicons?domain_url=${articleDomain}`;
+    }
+
     return (
       <li className={classNames.join(" ")}>
         <div className="article-link">
