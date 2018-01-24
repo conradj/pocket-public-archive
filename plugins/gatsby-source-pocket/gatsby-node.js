@@ -25,7 +25,7 @@ function getPocketArticles(since, pluginOptions) {
     const params = {
       // get/retrieve/search parameters.
       // See https://getpocket.com/developer/docs/v3/retrieve for full list of available params.
-      sort: "oldest",
+      sort: "newest",
       count: pluginOptions.apiMaxRecordsToReturn,
       detailType: "complete",
       state: "archive",
