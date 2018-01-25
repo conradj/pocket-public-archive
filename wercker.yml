@@ -47,7 +47,7 @@ deploy:
           echo "node version $(node -v) running"
           echo "npm version $(npm -v) runnings"
 
-    - after-steps:
-        - kobim/notify-pushover:
-            token: $PUSHOVER_APP_TOKEN
-            user: $PUSHOVER_USER_TOKEN
+  after-steps:
+    - kobim/notify-pushover:
+        token: $PUSHOVER_APP_TOKEN
+        user: $PUSHOVER_USER_TOKEN
