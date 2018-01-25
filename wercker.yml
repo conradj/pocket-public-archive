@@ -30,11 +30,11 @@ deploy:
       code: |
         npm install gatsby-cli -g
         npm i
-        gatsby build
+        #gatsby build
 
     # deploy to azure. Test credentials for debug, will reset.
     - wercker-labs/azure-ftp-deploy:
-        cwd: public/
+        cwd: src/
         publish-url: ftp://waws-prod-cw1-001.ftp.azurewebsites.windows.net/site/wwwroot
         username: pocketdigest
         password: mRlbQtQCXxZnRxx9Lnu25XajRzJwHlDsTvMrnCNdCJkkq1ec3jdLJTX5h3xG
