@@ -94,7 +94,7 @@ exports.sourceNodes = async ({ boundActionCreators, store }, pluginOptions) => {
       url: datum.resolved_url,
       title: datum.resolved_title,
       articleDomain: articleDomain,
-      domainFavicon: `http://s2.googleusercontent.com/s2/favicons?domain_url=${articleDomain}`,
+      domainFavicon: `https://s2.googleusercontent.com/s2/favicons?domain_url=${articleDomain}`,
       favourite: datum.favorite == true,
       favorite: datum.favorite == true,
       excerpt: datum.excerpt,
