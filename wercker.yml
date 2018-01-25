@@ -32,12 +32,12 @@ deploy:
         npm i
         gatsby build
 
-    # deploy to azure
+    # deploy to azure. Test credentials for debug, will reset.
     - wercker-labs/azure-ftp-deploy:
         cwd: public/
-        publish-url: $publish_url
-        username: $username
-        password: $password
+        publish-url: ftp://waws-prod-cw1-001.ftp.azurewebsites.windows.net/site/wwwroot
+        username: pocketdigest\\\$pocketdigest
+        password: mRlbQtQCXxZnRxx9Lnu25XajRzJwHlDsTvMrnCNdCJkkq1ec3jdLJTX5h3xG
 
     # A custom script step, name value is used in the UI
     # and the code value contains the command that get executed
