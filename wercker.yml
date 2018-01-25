@@ -36,7 +36,7 @@ deploy:
     - wercker-labs/azure-ftp-deploy:
         cwd: public/
         publish-url: ftp://waws-prod-cw1-001.ftp.azurewebsites.windows.net/site/wwwroot
-        username: pocketdigest\\\$pocketdigest
+        username: pocketdigest\\\$$pocketdigest
         password: mRlbQtQCXxZnRxx9Lnu25XajRzJwHlDsTvMrnCNdCJkkq1ec3jdLJTX5h3xG
 
     # A custom script step, name value is used in the UI
