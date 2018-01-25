@@ -2,7 +2,7 @@ require("dotenv-safe").load();
 
 module.exports = {
   siteMetadata: {
-    title: "Things I've read"
+    title: "Articles I've read"
   },
   plugins: [
     "gatsby-plugin-react-helmet",

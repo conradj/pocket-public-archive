@@ -8,7 +8,7 @@ import "./index.css";
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet
-      title="My Pocket reads"
+      title="Articles I've read"
       meta={[
         { name: "description", content: "Sample" },
         { name: "keywords", content: "sample, something" }

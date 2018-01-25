@@ -23,7 +23,7 @@ const Header = () => (
             textDecoration: "none"
           }}
         >
-          My Pocket reads
+          Articles I've read
         </Link>
       </h1>
     </div>
