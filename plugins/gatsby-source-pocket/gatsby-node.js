@@ -27,11 +27,12 @@ function getPocketArticles(since, pluginOptions) {
       // get/retrieve/search parameters.
       // See https://getpocket.com/developer/docs/v3/retrieve for full list of available params.
       sort: "newest",
-      count: pluginOptions.apiMaxRecordsToReturn,
+      count: parseInt(pluginOptions.apiMaxRecordsToReturn),
       detailType: "complete",
       state: "archive",
       since: parseInt(getTime(since) / 1000)
     };
+
     pocket.get(params, function(err, resp) {
       // check err or handle the response
       if (err) {
