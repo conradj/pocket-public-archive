@@ -23,13 +23,15 @@ build:
       code: |
         npm install gatsby-cli -g
         npm i
-        
+
 generate:
+  # The steps that will be executed to generate or regenerate the web pages
   steps:
     - script:
       name: generate weekly pages
       code: |
         gatsby build
+        export LAST_GENERATED_DATE=development
 
 deploy:
   # The steps that will be executed on deploy
