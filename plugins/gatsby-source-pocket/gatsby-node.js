@@ -19,7 +19,13 @@ function getPocketArticles(since, pluginOptions) {
       access_token: pluginOptions.accessToken
     };
     const pocket = new GetPocket(config);
-    if (!since) {
+
+    //  this is fine :-/
+    let lastGeneratedDateStamp = parseInt(
+      Date.parse(startOfWeek(new Date(process.env.LAST_GENERATED_DATE))) / 1000
+    );
+
+    if (isNaN(lastGeneratedDateStamp)) {
       reject("set a pocket start date in options");
     }
 
@@ -30,7 +36,7 @@ function getPocketArticles(since, pluginOptions) {
       count: parseInt(pluginOptions.apiMaxRecordsToReturn),
       detailType: "complete",
       state: "archive",
-      since: parseInt(getTime(since) / 1000)
+      since: lastGeneratedDateStamp
     };
 
     pocket.get(params, function(err, resp) {
