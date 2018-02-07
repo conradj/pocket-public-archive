@@ -19,10 +19,10 @@ box: node
 build:
   steps:
     - script:
-      name: setup environment
+      name: install-packages
       code: |
         npm install gatsby-cli -g
-        npm i
+    - npm-install
 
 generate:
   # The steps that will be executed to generate or regenerate the web pages
