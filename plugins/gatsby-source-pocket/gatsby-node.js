@@ -11,7 +11,7 @@ const createContentDigest = obj =>
     .update(JSON.stringify(obj))
     .digest("hex");
 
-function getPocketArticles(since, pluginOptions) {
+function getPocketArticles(sinceDate, pluginOptions) {
   return new Promise((resolve, reject) => {
     const GetPocket = require("node-getpocket");
     const config = {
@@ -19,13 +19,18 @@ function getPocketArticles(since, pluginOptions) {
       access_token: pluginOptions.accessToken
     };
     const pocket = new GetPocket(config);
+    let lastGeneratedDateStamp = sinceDate;
 
-    //  this is fine :-/
-    let lastGeneratedDateStamp = parseInt(
-      Date.parse(startOfWeek(new Date(process.env.LAST_GENERATED_DATE))) / 1000
+    // override - usually used in prod just to update current week on a nightly update after the first full generation.
+    if (pluginOptions.getCurrentWeekOnly.toLowerCase() === "y") {
+      lastGeneratedDateStamp = startOfWeek(new Date());
+    }
+
+    const unixTimeToGetArticlesFrom = parseInt(
+      Date.parse(lastGeneratedDateStamp) / 1000
     );
 
-    if (isNaN(lastGeneratedDateStamp)) {
+    if (isNaN(unixTimeToGetArticlesFrom)) {
       reject("set a pocket start date in options");
     }
 
@@ -36,7 +41,7 @@ function getPocketArticles(since, pluginOptions) {
       count: parseInt(pluginOptions.apiMaxRecordsToReturn),
       detailType: "complete",
       state: "archive",
-      since: lastGeneratedDateStamp
+      since: unixTimeToGetArticlesFrom
     };
 
     pocket.get(params, function(err, resp) {
@@ -55,25 +60,16 @@ function convertResultsToArticlesArray(pocketApiResults) {
   });
 }
 
-exports.sourceNodes = async ({ boundActionCreators, store }, pluginOptions) => {
-  const apiLastRun =
-    store.getState().status.plugins &&
-    store.getState().status.plugins["gatsby-source-pocket"]
-      ? store.getState().status.plugins["gatsby-source-pocket"]
-      : null;
-
-  const importStart = subWeeks(
+exports.sourceNodes = async ({ boundActionCreators }, pluginOptions) => {
+  const importStartDate = subWeeks(
     startOfWeek(new Date()),
     pluginOptions.weeksOfHistory
   );
 
-  const { createNode, touchNode, setPluginStatus } = boundActionCreators;
+  const { createNode, touchNode } = boundActionCreators;
   // get the data since the last time it was run, or from the earliest week
-  const data = await getPocketArticles(
-    apiLastRun ? apiLastRun : importStart,
-    pluginOptions
-  );
-  setPluginStatus({ lastFetched: new Date() });
+  const data = await getPocketArticles(importStartDate, pluginOptions);
+
   console.info("data loaded", data.length);
   // Process data into nodes.
   data.forEach(datum => {

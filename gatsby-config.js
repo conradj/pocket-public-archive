@@ -12,7 +12,8 @@ module.exports = {
         consumerKey: process.env.POCKET_CONSUMER_KEY,
         accessToken: process.env.POCKET_ACCESS_TOKEN,
         weeksOfHistory: process.env.WEEKS_OF_HISTORY,
-        apiMaxRecordsToReturn: process.env.API_MAX_RECORDS
+        apiMaxRecordsToReturn: process.env.API_MAX_RECORDS,
+        getCurrentWeekOnly: process.env.GET_CURRENT_WEEKS_ARTICLES_ONLY
       }
     }
   ],
