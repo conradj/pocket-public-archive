@@ -4,10 +4,53 @@ import Link from "gatsby-link";
 const Header = () => (
   <div
     style={{
-      background: "red",
+      background: "rgb(51, 51, 51)",
       marginBottom: "1.45rem"
     }}
   >
+    <div
+      style={{
+        margin: "0 auto",
+        float: "left",
+        width: "100px",
+        backgroundColor: "rgb(18, 217, 36)",
+        textAlign: "center",
+        padding: "1.45rem 1.0875rem"
+      }}
+    >
+      <h1 style={{ margin: 0 }}>
+        <a
+          href="https://conradj.co.uk"
+          style={{
+            margin: 0,
+            color: "rgb(255, 255, 255)",
+            textDecoration: "none"
+          }}
+        >
+          CJ
+        </a>
+      </h1>
+    </div>
+    <div
+      style={{
+        margin: "0 auto",
+        float: "right",
+        textAlign: "center",
+        padding: "0.45rem"
+      }}
+    >
+      <Link
+        to="/about"
+        style={{
+          color: "rgb(18, 217, 36)",
+          textDecoration: "none",
+          margin: 0,
+          fontSize: "1rem"
+        }}
+      >
+        What is this?
+      </Link>
+    </div>
     <div
       style={{
         margin: "0 auto",
@@ -19,26 +62,12 @@ const Header = () => (
         <Link
           to="/"
           style={{
-            color: "white",
+            color: "rgba(255, 255, 255, 0.7)",
             textDecoration: "none"
           }}
         >
           Articles I've read
         </Link>
-        <small>
-          <Link
-            to="/about"
-            style={{
-              color: "#424242",
-              textDecoration: "none",
-              float: "right",
-              margin: 0,
-              fontSize: "1rem"
-            }}
-          >
-            About this site
-          </Link>
-        </small>
       </h1>
     </div>
   </div>

@@ -22,7 +22,7 @@ const Footer = () => (
             color: "white"
           }}
         >
-          Written by conradj.co.uk
+          Site by conradj.co.uk
         </a>
       </h4>
     </div>
