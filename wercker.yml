@@ -27,7 +27,7 @@ generate:
       name: generate weekly pages
       code: |
         npm install gatsby-cli -g
-        gatsby build
+        gatsby build --prefix-paths
 
 deploy:
   # The steps that will be executed on deploy

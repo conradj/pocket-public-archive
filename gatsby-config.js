@@ -17,5 +17,5 @@ module.exports = {
       }
     }
   ],
-  pathPrefix: `/pocket-public-archive`
+  pathPrefix: `/weeklyreads`
 };
