@@ -8,29 +8,27 @@ const Header = () => (
       marginBottom: "1.45rem"
     }}
   >
-    <div
+    <a
+      href="https://conradj.co.uk"
       style={{
-        margin: "0 auto",
-        float: "left",
-        width: "100px",
-        backgroundColor: "rgb(18, 217, 36)",
-        textAlign: "center",
-        padding: "1.45rem 1.0875rem"
+        margin: 0,
+        color: "rgb(255, 255, 255)",
+        textDecoration: "none"
       }}
     >
-      <h1 style={{ margin: 0 }}>
-        <a
-          href="https://conradj.co.uk"
-          style={{
-            margin: 0,
-            color: "rgb(255, 255, 255)",
-            textDecoration: "none"
-          }}
-        >
-          CJ
-        </a>
-      </h1>
-    </div>
+      <div
+        style={{
+          margin: "0 auto",
+          float: "left",
+          width: "100px",
+          backgroundColor: "rgb(18, 217, 36)",
+          textAlign: "center",
+          padding: "1.45rem 1.0875rem"
+        }}
+      >
+        <h1 style={{ margin: 0 }}>CJ</h1>
+      </div>
+    </a>
     <div
       style={{
         margin: "0 auto",
@@ -40,7 +38,7 @@ const Header = () => (
       }}
     >
       <Link
-        to="/about"
+        to="/about/"
         style={{
           color: "rgb(18, 217, 36)",
           textDecoration: "none",
