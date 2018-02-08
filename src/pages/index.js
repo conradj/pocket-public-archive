@@ -7,7 +7,7 @@ const format = require("date-fns/format");
 
 const IndexPage = pluginOptions => {
   const thisWeekTime = withPrefix(
-    parseInt(format(startOfWeek(new Date()), "X"))
+    `/${parseInt(format(startOfWeek(new Date()), "X"))}`
   );
   console.log(thisWeekTime);
   //window.location = thisWeekTime;
