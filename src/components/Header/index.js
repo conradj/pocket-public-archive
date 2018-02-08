@@ -25,6 +25,20 @@ const Header = () => (
         >
           Articles I've read
         </Link>
+        <small>
+          <Link
+            to="/about"
+            style={{
+              color: "#424242",
+              textDecoration: "none",
+              float: "right",
+              margin: 0,
+              fontSize: "1rem"
+            }}
+          >
+            About this site
+          </Link>
+        </small>
       </h1>
     </div>
   </div>
