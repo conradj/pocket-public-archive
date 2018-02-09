@@ -38,7 +38,7 @@ const Header = () => (
       }}
     >
       <Link
-        to="/about/"
+        to="/about"
         style={{
           color: "rgb(18, 217, 36)",
           textDecoration: "none",
