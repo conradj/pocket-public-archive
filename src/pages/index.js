@@ -15,8 +15,9 @@ const IndexPage = pluginOptions => {
   return (
     <div>
       <Helmet>
-        <meta http-equiv="refresh" content={`0;url=${thisWeekTime}`} />;
+        {/* <meta http-equiv="refresh" content={`0;url=${thisWeekTime}`} />; */}
       </Helmet>
+      meta http-equiv="refresh" content={`0;url=${thisWeekTime}`} /;
       <a href={thisWeekTime}>This weeks articles</a>
     </div>
   );
