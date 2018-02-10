@@ -3,7 +3,7 @@ import Link from "gatsby-link";
 import Helmet from "react-helmet";
 import { withPrefix } from "gatsby-link";
 const startOfWeek = require("date-fns/start_of_week");
-const format = require("date-fns/format");
+import format from "date-fns/format";
 
 const IndexPage = pluginOptions => {
   const thisWeekTime = withPrefix(
