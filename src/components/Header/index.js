@@ -1,10 +1,11 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Link from "gatsby-link";
 import format from "date-fns/format";
 
 class Header extends React.Component {
   render() {
-    console.log(this.props);
+    console.log(this.props.location, location);
     let title = "Articles I read";
 
     if (typeof window !== "undefined") {
@@ -87,5 +88,9 @@ class Header extends React.Component {
     );
   }
 }
+
+Header.propTypes = {
+  location: PropTypes.object
+};
 
 export default Header;
