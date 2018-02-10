@@ -108,7 +108,7 @@ exports.sourceNodes = async ({ boundActionCreators }, pluginOptions) => {
       word_count: parseInt(datum.word_count),
       time_added: datum.time_added,
       time_updated: datum.time_updated,
-      time_read: datum.time_read,
+      time_read: parseInt(datum.time_read),
       image: image,
       // Required fields.
       parent: null, //`the-id-of-the-parent-node`, // or null if it's a source node without a parent

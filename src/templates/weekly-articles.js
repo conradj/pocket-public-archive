@@ -5,6 +5,7 @@ const format = require("date-fns/format");
 
 class WeeklyArticlesTemplate extends React.Component {
   render() {
+    let totalWords = 0;
     if (this.props.data.allPocketArticle) {
       const thisWeek = parseInt(
         this.props.data.allPocketArticle.edges[0].node.readWeek
@@ -23,20 +24,33 @@ class WeeklyArticlesTemplate extends React.Component {
               </a>
             ) : null}
           </nav>
-          <h1>Week starting {weekDate}</h1>
-
+          {/* <h1>Week starting {weekDate}</h1> */}
           <ul className="wrapper">
             {this.props.data.allPocketArticle.edges.map((edge, index) => {
               let article = edge.node;
               if (article.title && article.url && article.word_count > 0) {
+                totalWords += article.word_count;
                 return (
                   <ArticleTemplate key={index} {...article} index={index} />
                 );
               } else {
-                //console.warn("Article not loaded", article);
+                console.warn("Article not loaded", article);
               }
             })}
           </ul>
+          <br />
+          <br />
+          <br />
+          <div>
+            <p>
+              <span>Total words: </span>
+              <span>{totalWords}</span>
+            </p>
+            <p>
+              <span>Time spent reading: </span>
+              <span>{parseInt(totalWords / 275)} minutes</span>
+            </p>
+          </div>
         </div>
       );
     } else {
@@ -51,7 +65,7 @@ export const pageQuery = graphql`
   query ArticlesWeekQuery($currentWeekFilter: Int!) {
     allPocketArticle(
       filter: { readWeek: { eq: $currentWeekFilter } }
-      sort: { fields: [word_count, favorite], order: DESC }
+      sort: { fields: [favorite, time_read], order: DESC }
     ) {
       edges {
         node {

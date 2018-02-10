@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./article.css";
+import format from "date-fns/format";
 
 class ArticleTemplate extends React.Component {
   render() {
@@ -13,7 +14,8 @@ class ArticleTemplate extends React.Component {
       favourite,
       word_count,
       articleDomain,
-      domainFavicon
+      domainFavicon,
+      time_read
     } = this.props;
     const classNames = ["article"];
     if (index === 0) {
@@ -23,6 +25,9 @@ class ArticleTemplate extends React.Component {
     if (index === 1) {
       classNames.push("wide");
     }
+
+    const readTime = parseInt(word_count / 275);
+    const readTimeText = readTime < 2 ? "1 minute" : readTime + " minutes";
 
     return (
       <li className={classNames.join(" ")}>
@@ -38,8 +43,11 @@ class ArticleTemplate extends React.Component {
         </a>
         <div className="article-metadata">
           <br />
-          <small>{word_count} words</small>
-          <br />
+          <small>
+            {word_count} words | {readTimeText} |{" "}
+            {format(new Date(time_read * 1000), "dddd Do ha")}
+            {favourite ? " | Favourited" : ""}
+          </small>
         </div>
       </li>
     );
@@ -55,7 +63,8 @@ ArticleTemplate.propTypes = {
   domainFavicon: PropTypes.string,
   articleDomain: PropTypes.string,
   favourite: PropTypes.bool,
-  word_count: PropTypes.number
+  word_count: PropTypes.number,
+  time_read: PropTypes.number
 };
 
 export default ArticleTemplate;
