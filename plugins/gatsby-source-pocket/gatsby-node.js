@@ -20,7 +20,17 @@ function getPocketArticles(sinceDate, pluginOptions) {
     };
     const pocket = new GetPocket(config);
     let lastGeneratedDateStamp = sinceDate;
+    console.info(
+      "pluginOptions.getCurrentWeekOnly",
+      pluginOptions.getCurrentWeekOnly
+    );
 
+    console.info(
+      "process.env.GET_CURRENT_WEEKS_ARTICLES_ONLY",
+      process.env.GET_CURRENT_WEEKS_ARTICLES_ONLY
+    );
+
+    console.info("process.env.TEST_VALUE", process.env.TEST_VALUE);
     // override - usually used in prod just to update current week on a nightly update after the first full generation.
     if (pluginOptions.getCurrentWeekOnly.toLowerCase() === "y") {
       lastGeneratedDateStamp = startOfWeek(new Date());

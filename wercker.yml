@@ -27,6 +27,8 @@ generate:
       name: generate weekly pages
       code: |
         npm install gatsby-cli -g
+        echo $GET_CURRENT_WEEKS_ARTICLES_ONLY
+        echo $TEST_VALUE       
         gatsby build --prefix-paths
 
 deploy:
