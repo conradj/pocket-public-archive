@@ -58,7 +58,10 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           reject(result.errors);
         }
 
-        if (result.data.allPocketArticle.edges) {
+        if (
+          result.data.allPocketArticle &&
+          result.data.allPocketArticle.edges
+        ) {
           // loop through weeks to current week
           const firstArticleReadTime = parseInt(
             result.data.allPocketArticle.edges[0].node.time_read
