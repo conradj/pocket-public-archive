@@ -6,18 +6,22 @@ const startOfWeek = require("date-fns/start_of_week");
 import format from "date-fns/format";
 
 const IndexPage = pluginOptions => {
-  const thisWeekTime = withPrefix(
-    `/${parseInt(format(startOfWeek(new Date()), "X"))}`
+  const today = new Date();
+  let lastWeek = new Date();
+  lastWeek.setDate(today.getDate() - 7);
+  console.log("lastweek", lastWeek);
+  const lastWeekTime = withPrefix(
+    `/${parseInt(format(startOfWeek(lastWeek), "X"))}`
   );
-  console.log(thisWeekTime);
+  console.log(lastWeekTime);
   //window.location = thisWeekTime;
 
   return (
     <div>
       <Helmet>
-        <meta http-equiv="refresh" content={`0;url=${thisWeekTime}`} />;
+        <meta http-equiv="refresh" content={`0;url=${lastWeekTime}`} />;
       </Helmet>
-      <a href={thisWeekTime}>This weeks articles</a>
+      <a href={lastWeekTime}>Articles read in the last week</a>
     </div>
   );
 };
