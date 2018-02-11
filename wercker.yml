@@ -28,7 +28,8 @@ generate:
       code: |
         npm install gatsby-cli -g
         echo $GET_CURRENT_WEEKS_ARTICLES_ONLY
-        echo $TEST_VALUE       
+        echo $TEST_VALUE
+        env       
         gatsby build --prefix-paths
 
 deploy:
