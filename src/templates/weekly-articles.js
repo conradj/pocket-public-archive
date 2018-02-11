@@ -12,8 +12,8 @@ class WeeklyArticlesTemplate extends React.Component {
       );
       const nextWeek = thisWeek + 604800;
       const lastWeek = thisWeek - 604800;
-
       const weekDate = format(new Date(thisWeek * 1000), "Do MMMM YYYY");
+
       return (
         <div>
           <nav>
@@ -24,7 +24,7 @@ class WeeklyArticlesTemplate extends React.Component {
               </a>
             ) : null}
           </nav>
-          {/* <h1>Week starting {weekDate}</h1> */}
+          <h1>Week of {weekDate}</h1>
           <ul className="wrapper">
             {this.props.data.allPocketArticle.edges.map((edge, index) => {
               let article = edge.node;

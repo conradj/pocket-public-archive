@@ -5,77 +5,63 @@ import format from "date-fns/format";
 
 class Header extends React.Component {
   render() {
-    console.log(this.props.location, location);
-    let title = "Articles I read";
-
-    if (typeof window !== "undefined") {
-      const pathName = window.location.pathname.replace("/", "");
-      if (!isNaN(pathName)) {
-        title +=
-          " - Week of " + format(new Date(pathName * 1000), "Do MMMM YYYY");
-      }
-    }
-
     return (
-      <div
-        style={{
-          display: "flex",
-          background: "rgb(51, 51, 51)",
-          marginBottom: "1.45rem"
-        }}
-      >
-        <a
-          href="https://conradj.co.uk"
-          style={{
-            margin: 0,
-            color: "rgb(255, 255, 255)",
-            textDecoration: "none"
-          }}
-        >
+      <header>
+        <div style={{ background: "#3c3a40" }}>
           <div
             style={{
-              margin: "0 auto",
-              flex: "100px",
               width: "100px",
-              height: "100%",
-              backgroundColor: "rgb(18, 217, 36)",
-              textAlign: "center",
-              padding: "1.45rem 1.0875rem"
+              float: "left"
             }}
           >
-            <h1 style={{ margin: 0 }}>CJ</h1>
-          </div>
-        </a>
-        <div
-          style={{
-            margin: "0 auto",
-            maxWidth: 960,
-            padding: "1.45rem 1.0875rem"
-          }}
-        >
-          <h1 style={{ margin: 0 }}>
-            <Link
-              to="/"
+            <a
+              href="https://conradj.co.uk"
               style={{
-                color: "rgba(255, 255, 255, 0.7)",
+                color: "#bfbdc1",
                 textDecoration: "none"
               }}
             >
-              {title}
-            </Link>
-          </h1>
+              <div
+                style={{
+                  backgroundColor: "#d81159",
+                  textAlign: "center",
+                  padding: "1.45rem 1.0875rem"
+                }}
+              >
+                <h1 style={{ margin: 0 }}>CJ</h1>
+              </div>
+            </a>
+          </div>
+          <div
+            style={{
+              margin: "0px auto",
+              maxWidth: "960px",
+              padding: "1.45rem 1.0875rem"
+            }}
+          >
+            <h1 style={{ margin: 0 }}>
+              <Link
+                to="/"
+                style={{
+                  color: "#bfbdc1",
+                  textDecoration: "none"
+                }}
+              >
+                Articles I read
+              </Link>
+            </h1>
+          </div>
         </div>
         <div
           style={{
-            margin: "0 auto",
-            textAlign: "center",
-            padding: "0.45rem"
+            display: "flex",
+            padding: "0rem 1.0875rem"
           }}
         >
           <Link
             to="/about"
             style={{
-              color: "rgb(18, 217, 36)",
+              color: "#bfbdc1",
               textDecoration: "none",
               margin: 0,
               fontSize: "1rem"
@@ -84,7 +70,7 @@ class Header extends React.Component {
             What is this?
           </Link>
         </div>
-      </div>
+      </header>
     );
   }
 }

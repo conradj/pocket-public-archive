@@ -4,7 +4,7 @@ import Link from "gatsby-link";
 const Footer = () => (
   <div
     style={{
-      background: "red",
+      background: "#78fecf",
       paddingBottom: "1.45rem"
     }}
   >
@@ -19,7 +19,8 @@ const Footer = () => (
         <a
           href="https://conradj.co.uk"
           style={{
-            color: "white"
+            color: "#3c3a40",
+            textDecoration: "none"
           }}
         >
           Site by conradj.co.uk
