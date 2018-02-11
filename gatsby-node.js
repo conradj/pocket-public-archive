@@ -58,37 +58,36 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           reject(result.errors);
         }
 
+        // default to create a page for this week in case there are no articles
+        let firstArticleReadTime = format(new Date(), "X");
+
         if (
+          result.data &&
           result.data.allPocketArticle &&
           result.data.allPocketArticle.edges
         ) {
-          // loop through weeks to current week
-          const firstArticleReadTime = parseInt(
+          // if there are results then we'll create a page per week starting from that first article
+          firstArticleReadTime = parseInt(
             result.data.allPocketArticle.edges[0].node.time_read
           );
+        }
+        // first week to create
+        let startOfWeekTime = parseInt(
+          format(startOfWeek(new Date(firstArticleReadTime * 1000)), "X")
+        );
 
-          let startOfWeekTime = parseInt(
-            format(startOfWeek(new Date(firstArticleReadTime * 1000)), "X")
-          );
-
-          const nowTime = parseInt(format(new Date(), "X"));
-
-          let endOfWeekTime = startOfWeekTime + 604800;
-          let iteration = 0;
-
-          while (startOfWeekTime < nowTime) {
-            createPage({
-              path: startOfWeekTime,
-              component: weeklyArticlesTemplate,
-              layout: `index`,
-              context: {
-                currentWeekFilter: startOfWeekTime
-              }
-            });
-            // get next week timestamps
-            startOfWeekTime = startOfWeekTime + 604800;
-            endOfWeekTime = endOfWeekTime + 604800;
-          }
+        // get all weeks up till now
+        while (startOfWeekTime < parseInt(format(new Date(), "X"))) {
+          createPage({
+            path: startOfWeekTime,
+            component: weeklyArticlesTemplate,
+            layout: `index`,
+            context: {
+              currentWeekFilter: startOfWeekTime
+            }
+          });
+          // get next week timestamp
+          startOfWeekTime = startOfWeekTime + 604800;
         }
       })
     );

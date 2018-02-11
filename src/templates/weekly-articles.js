@@ -2,60 +2,61 @@ import React from "react";
 import ArticleTemplate from "./article";
 import "./weekly-articles.css";
 const format = require("date-fns/format");
+const startOfWeek = require("date-fns/start_of_week");
 
 class WeeklyArticlesTemplate extends React.Component {
   render() {
     let totalWords = 0;
+    let thisWeek = Date.parse(startOfWeek(new Date())) / 1000;
+
     if (this.props.data.allPocketArticle) {
-      const thisWeek = parseInt(
+      thisWeek = parseInt(
         this.props.data.allPocketArticle.edges[0].node.readWeek
       );
-      const nextWeek = thisWeek + 604800;
-      const lastWeek = thisWeek - 604800;
-      const weekDate = format(new Date(thisWeek * 1000), "Do MMMM YYYY");
-
-      return (
-        <div>
-          <nav>
-            <a href={`../${lastWeek}`}>Previous Week</a>
-            {nextWeek < new Date().getTime() / 1000 ? (
-              <a className="next-week" href={`../${nextWeek}`}>
-                Next Week
-              </a>
-            ) : null}
-          </nav>
-          <h1>Week of {weekDate}</h1>
-          <ul className="wrapper">
-            {this.props.data.allPocketArticle.edges.map((edge, index) => {
-              let article = edge.node;
-              if (article.title && article.url && article.word_count > 0) {
-                totalWords += article.word_count;
-                return (
-                  <ArticleTemplate key={index} {...article} index={index} />
-                );
-              } else {
-                console.warn("Article not loaded", article);
-              }
-            })}
-          </ul>
-          <br />
-          <br />
-          <br />
-          <div>
-            <p>
-              <span>Total words: </span>
-              <span>{totalWords}</span>
-            </p>
-            <p>
-              <span>Time spent reading: </span>
-              <span>{parseInt(totalWords / 275)} minutes</span>
-            </p>
-          </div>
-        </div>
-      );
-    } else {
-      return <div />;
     }
+    const nextWeek = thisWeek + 604800;
+    const lastWeek = thisWeek - 604800;
+    const weekDate = format(new Date(thisWeek * 1000), "Do MMMM YYYY");
+
+    const articleList = this.props.data.allPocketArticle ? (
+      <ul className="wrapper">
+        {this.props.data.allPocketArticle.edges.map((edge, index) => {
+          let article = edge.node;
+          if (article.title && article.url && article.word_count > 0) {
+            totalWords += article.word_count;
+            return <ArticleTemplate key={index} {...article} index={index} />;
+          } else {
+            console.warn("Article not loaded", article);
+          }
+        })}
+      </ul>
+    ) : (
+      <div>No Articles read yet this week</div>
+    );
+
+    const readTime = parseInt(totalWords / 275);
+    const readTimeText = readTime < 2 ? "1 minute" : readTime + " minutes";
+
+    return (
+      <div>
+        <nav>
+          <a href={`../${lastWeek}`}>Previous Week</a>
+          {nextWeek < new Date().getTime() / 1000 ? (
+            <a className="next-week" href={`../${nextWeek}`}>
+              Next Week
+            </a>
+          ) : null}
+        </nav>
+        <h1 className="week-headline">
+          Week of {weekDate}
+          <br />
+          <small className="week-metadata">
+            {totalWords} words | {readTimeText}
+          </small>
+        </h1>
+        {articleList}
+      </div>
+    );
   }
 }
 
