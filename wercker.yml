@@ -19,6 +19,12 @@ box: node
 build:
   steps:
     - npm-install
+    - script:
+      name: echo things
+      code: |
+        echo $GET_CURRENT_WEEKS_ARTICLES_ONLY
+        echo $TEST_VALUE
+        env
 
 generate:
   # The steps that will be executed to generate or regenerate the web pages
@@ -29,7 +35,7 @@ generate:
         npm install gatsby-cli -g
         echo $GET_CURRENT_WEEKS_ARTICLES_ONLY
         echo $TEST_VALUE
-        env       
+        env
         gatsby build --prefix-paths
 
 deploy:
