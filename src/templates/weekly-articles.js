@@ -8,8 +8,8 @@ class WeeklyArticlesTemplate extends React.Component {
   render() {
     let totalWords = 0;
     let thisWeek = Date.parse(startOfWeek(new Date())) / 1000;
-
-    if (this.props.data.allPocketArticle) {
+    const isData = this.props.data && this.props.data.allPocketArticle;
+    if (isData) {
       thisWeek = parseInt(
         this.props.data.allPocketArticle.edges[0].node.readWeek
       );
@@ -18,7 +18,7 @@ class WeeklyArticlesTemplate extends React.Component {
     const lastWeek = thisWeek - 604800;
     const weekDate = format(new Date(thisWeek * 1000), "Do MMMM YYYY");
 
-    const articleList = this.props.data.allPocketArticle ? (
+    const articleList = isData ? (
       <ul className="wrapper">
         {this.props.data.allPocketArticle.edges.map((edge, index) => {
           let article = edge.node;
