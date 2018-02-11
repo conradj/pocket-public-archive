@@ -35,20 +35,19 @@ class ArticleTemplate extends React.Component {
           <img className="article-link-favicon" src={domainFavicon} />
           {articleDomain}
         </div>
-        <h1>{title}</h1>
-        {image ? <img src={image.src} /> : null}
-        <p>{excerpt}</p>
-        <a href={url} target="_blank">
-          Read more
-        </a>
+        <h1 className="article-title">{title}</h1>
         <div className="article-metadata">
-          <br />
           <small>
             {word_count} words | {readTimeText} |{" "}
             {format(new Date(time_read * 1000), "dddd Do ha")}
             {favourite ? " | Favourited" : ""}
           </small>
         </div>
+        {image ? <img src={image.src} /> : null}
+        <p>{excerpt}</p>
+        <a href={url} target="_blank">
+          Read more
+        </a>
       </li>
     );
   }

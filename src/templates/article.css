@@ -4,7 +4,6 @@
   border-radius: 5px;
   padding: 10px;
   position: relative;
-  padding-bottom: 4rem;
 }
 
 .article h1 {
@@ -30,9 +29,12 @@
   }
 }
 
+.article-title {
+  margin-bottom: 0;
+}
+
 .article-metadata {
-  position: absolute;
-  bottom: 0;
+  margin-bottom: 1.45rem;
   color: #bfbdc1;
 }
 
