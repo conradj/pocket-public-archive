@@ -31,6 +31,7 @@ function getPocketArticles(sinceDate, pluginOptions) {
     );
 
     console.info("process.env.TEST_VALUE", process.env.TEST_VALUE);
+    console.info("process.env.TEST_VALUE", process.env.TEST_VALUE_NOPE);
     // override - usually used in prod just to update current week on a nightly update after the first full generation.
     if (pluginOptions.getCurrentWeekOnly.toLowerCase() === "y") {
       lastGeneratedDateStamp = startOfWeek(new Date());
