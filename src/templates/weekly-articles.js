@@ -51,7 +51,7 @@ class WeeklyArticlesTemplate extends React.Component {
           Week of {weekDate}
           <br />
           <small className="week-metadata">
-            {totalWords} words | {readTimeText}
+            {new Intl.NumberFormat().format(totalWords)} words | {readTimeText}
           </small>
         </h1>
         {articleList}

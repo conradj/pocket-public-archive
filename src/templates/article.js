@@ -38,8 +38,8 @@ class ArticleTemplate extends React.Component {
         <h1 className="article-title">{title}</h1>
         <div className="article-metadata">
           <small>
-            {word_count} words | {readTimeText} |{" "}
-            {format(new Date(time_read * 1000), "dddd Do ha")}
+            {new Intl.NumberFormat().format(word_count)} words | {readTimeText}{" "}
+            | {format(new Date(time_read * 1000), "dddd Do ha")}
             {favourite ? " | Favourited" : ""}
           </small>
         </div>
