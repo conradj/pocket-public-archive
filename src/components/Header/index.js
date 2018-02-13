@@ -11,7 +11,8 @@ class Header extends React.Component {
           <div
             style={{
               width: "100px",
-              float: "left"
+              float: "left",
+              marginRight: "1rem"
             }}
           >
             <a
@@ -32,6 +33,27 @@ class Header extends React.Component {
               </div>
             </a>
           </div>
+          <div style={{ float: "right" }}>
+            <Link
+              to="/about"
+              style={{
+                color: "#3c3a40",
+                textDecoration: "none",
+                margin: 0,
+                fontSize: "1rem"
+              }}
+            >
+              <div
+                style={{
+                  backgroundColor: "#ffbc42",
+                  textAlign: "center",
+                  padding: "1.45rem 1.0875rem"
+                }}
+              >
+                <h1 style={{ margin: "0px" }}>?</h1>
+              </div>
+            </Link>
+          </div>
           <div
             style={{
               margin: "0px auto",
@@ -47,28 +69,10 @@ class Header extends React.Component {
                   textDecoration: "none"
                 }}
               >
-                Articles I read
+                Reading History
               </Link>
             </h1>
           </div>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            padding: "0rem 1.0875rem"
-          }}
-        >
-          <Link
-            to="/about"
-            style={{
-              color: "#bfbdc1",
-              textDecoration: "none",
-              margin: 0,
-              fontSize: "1rem"
-            }}
-          >
-            What is this?
-          </Link>
         </div>
       </header>
     );

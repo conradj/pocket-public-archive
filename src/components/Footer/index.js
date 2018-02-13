@@ -16,16 +16,25 @@ const Footer = () => (
       }}
     >
       <h4 style={{ margin: 0, float: "left" }}>
+        Site by{" "}
         <a
           href="https://conradj.co.uk"
           style={{
-            color: "#3c3a40",
-            textDecoration: "none"
+            color: "#3c3a40"
           }}
         >
-          Site by conradj.co.uk
+          Conrad Jackson
         </a>
       </h4>
+      <span style={{ float: "right" }}>
+        <a href="https://twitter.com/conradj" target="_blank">
+          Twitter
+        </a>
+        |{" "}
+        <a href="https://github.com/conradj" target="_blank">
+          Github
+        </a>
+      </span>
     </div>
   </div>
 );
