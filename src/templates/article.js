@@ -5,9 +5,7 @@ import format from "date-fns/format";
 
 class ArticleTemplate extends React.Component {
   saveGAEvent(event) {
-    console.log("article click", event.target.hostname, event.target.pathname);
     if (process.env.NODE_ENV === "production" && typeof ga === "function") {
-      console.log(ga);
       ga("send", {
         hitType: "event",
         eventCategory: event.target.hostname,
@@ -43,11 +41,18 @@ class ArticleTemplate extends React.Component {
 
     return (
       <li className={classNames.join(" ")}>
-        <div className="article-link">
-          <img className="article-link-favicon" src={domainFavicon} />
+        <div className="article-domain">
+          <img className="article-domain-favicon" src={domainFavicon} />
           {articleDomain}
         </div>
-        <h1 className="article-title">{title}</h1>
+        <a
+          href={url}
+          target="_blank"
+          onClick={event => this.saveGAEvent(event)}
+          className="article-link"
+        >
+          <h1 className="article-title">{title}</h1>
+        </a>
         <div className="article-metadata">
           <small>
             {new Intl.NumberFormat().format(word_count)} words | {readTimeText}{" "}
