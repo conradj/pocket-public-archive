@@ -4,6 +4,18 @@ import "./article.css";
 import format from "date-fns/format";
 
 class ArticleTemplate extends React.Component {
+  saveGAEvent(event) {
+    console.log("article click", event.target.hostname, event.target.pathname);
+    if (process.env.NODE_ENV === "production" && typeof ga === "function") {
+      console.log(ga);
+      ga("send", {
+        hitType: "event",
+        eventCategory: event.target.hostname,
+        eventAction: "read",
+        eventLabel: event.target.pathname
+      });
+    }
+  }
   render() {
     const {
       index,
@@ -45,7 +57,11 @@ class ArticleTemplate extends React.Component {
         </div>
         {image ? <img src={image.src} /> : null}
         <p>{excerpt}</p>
-        <a href={url} target="_blank">
+        <a
+          href={url}
+          target="_blank"
+          onClick={event => this.saveGAEvent(event)}
+        >
           Read more
         </a>
       </li>
