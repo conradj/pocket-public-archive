@@ -43,7 +43,16 @@ class ArticleTemplate extends React.Component {
             {favourite ? " | Favourited" : ""}
           </small>
         </div>
-        {image ? <img src={image.src} /> : null}
+        {image ? (
+          <img
+            onError={e => {
+              e.target.src =
+                "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+              e.target.alt = "";
+            }}
+            src={image.src}
+          />
+        ) : null}
         <p>{excerpt}</p>
         <a href={url} target="_blank">
           Read more
