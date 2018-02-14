@@ -11,6 +11,10 @@
   font-family: georgia, serif;
 }
 
+.article-link {
+  text-decoration: none;
+}
+
 .article-headline h1 {
   font-size: 2rem;
 }
@@ -30,6 +34,7 @@
 }
 
 .article-title {
+  color: rgb(60, 58, 64);
   margin-bottom: 0;
 }
 
@@ -38,13 +43,13 @@
   color: #bfbdc1;
 }
 
-.article-link {
+.article-domain {
   font-size: 0.8rem;
   font-weight: bold;
   color: #808080;
   padding-bottom: 0.5rem;
 }
 
-.article-link-favicon {
+.article-domain-favicon {
   margin-right: 0.25rem;
 }
