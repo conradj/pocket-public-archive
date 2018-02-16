@@ -29,7 +29,7 @@ const Footer = () => (
       <span style={{ float: "right" }}>
         <a href="https://twitter.com/conradj" target="_blank">
           Twitter
-        </a>
+        </a>{" "}
         |{" "}
         <a href="https://github.com/conradj" target="_blank">
           Github

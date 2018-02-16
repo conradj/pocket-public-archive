@@ -39,22 +39,21 @@ class WeeklyArticlesTemplate extends React.Component {
 
     return (
       <div>
-        <nav>
-          <a href={`../${lastWeek}`}>Previous Week</a>
-          {nextWeek < new Date().getTime() / 1000 ? (
-            <a className="next-week" href={`../${nextWeek}`}>
-              Next Week
-            </a>
-          ) : null}
-        </nav>
-        <h1 className="week-headline">
-          Week of {weekDate}
-          <br />
-          <small className="week-metadata">
-            {new Intl.NumberFormat().format(totalWords)} words | {readTimeText}
-          </small>
-        </h1>
-        {articleList}
+        <header className="week-header">
+          <div className="head-middle">
+            <small className="week-metadata">
+              <a href={`../${lastWeek}`}>&lt; Previous Week</a> | Week of{" "}
+              {weekDate} | {new Intl.NumberFormat().format(totalWords)} words |{" "}
+              {readTimeText} |{" "}
+              {nextWeek < new Date().getTime() / 1000 ? (
+                <a className="next-week" href={`../${nextWeek}`}>
+                  Next Week &gt;
+                </a>
+              ) : null}
+            </small>
+          </div>
+        </header>
+        <div className="article-list-container">{articleList}</div>
       </div>
     );
   }
