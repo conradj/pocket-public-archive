@@ -56,7 +56,7 @@ class ArticleTemplate extends React.Component {
         <div className="article-metadata">
           <small>
             {new Intl.NumberFormat().format(word_count)} words | {readTimeText}{" "}
-            | {format(new Date(time_read * 1000), "dddd Do ha")}
+            | {format(new Date(time_read * 1000), "dddd ha")}
             {favourite ? " | Favourited" : ""}
           </small>
         </div>
