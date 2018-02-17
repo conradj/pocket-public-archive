@@ -8,17 +8,6 @@ img {
   max-width: 100%;
 }
 
-.site-name {
-  font-family: Cinzel Decorative, serif;
-  text-align: center;
-  font-size: 1.5rem;
-  color: #bfbdc1;
-}
-
-.week-header {
-  display: flex;
-}
-
 .head-first,
 .head-last {
   width: 10%;
@@ -55,10 +44,6 @@ img {
   }
 }
 
-nav {
-  padding: 1.45rem 0rem;
-}
-
 .week-headline {
   /* font-family: georgia, serif; */
   text-align: center;
@@ -69,13 +54,5 @@ nav {
   color: #3c3a40;
 }
 .week-metadata {
-  font-size: 1rem;
   color: #bfbdc1;
-}
-
-.article-list-container {
-  margin: 0 auto;
-  max-width: 960px;
-  padding: 0px 1.0875rem 1.45rem;
-  padding-top: 0;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 
 const AboutPage = () => (
-  <div>
+  <div className="page-main-container">
     <h1>What is this?</h1>
     <p>This site shows all of the articles I've read on Pocket, by week.</p>
     <p>
