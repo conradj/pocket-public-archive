@@ -64,6 +64,10 @@ nav {
   text-align: center;
   font-size: 3rem;
 }
+
+.week-current {
+  color: #3c3a40;
+}
 .week-metadata {
   font-size: 1rem;
   color: #bfbdc1;

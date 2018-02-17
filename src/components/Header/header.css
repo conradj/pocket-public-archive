@@ -1,3 +1,14 @@
+.top-nav {
+  border-bottom: solid 1px #78fecf;
+  padding: 0.5rem 1rem;
+}
+
+.top-nav a {
+  font-variant: small-caps;
+  font-family: sans-serif;
+  text-decoration: none;
+}
+
 .site-name {
   margin-top: 1rem;
 }
