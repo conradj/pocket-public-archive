@@ -45,6 +45,22 @@ img {
 .week-current {
   color: #3c3a40;
 }
+
+.week-metadata-container {
+  display: flex;
+  margin: 10px 10px 0;
+}
+
+.week-metadata-first,
+.week-metadata-last {
+  width: 20%;
+}
+.week-metadata-last select {
+  float: right;
+  font-size: 0.8rem;
+}
+
 .week-metadata {
   color: #bfbdc1;
+  flex: 1;
 }
