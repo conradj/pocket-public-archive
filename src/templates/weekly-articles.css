@@ -8,15 +8,6 @@ img {
   max-width: 100%;
 }
 
-.head-first,
-.head-last {
-  width: 10%;
-}
-.head-middle {
-  flex: 1;
-  text-align: center;
-}
-
 .wrapper {
   list-style: none;
   margin: 0 auto 0 auto;
@@ -43,9 +34,10 @@ img {
     grid-column: auto / span 2;
   }
 }
-
+.week-header {
+  text-align: center;
+}
 .week-headline {
-  /* font-family: georgia, serif; */
   text-align: center;
   font-size: 3rem;
 }

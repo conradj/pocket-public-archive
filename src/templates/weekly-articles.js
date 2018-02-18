@@ -40,21 +40,18 @@ class WeeklyArticlesTemplate extends React.Component {
     return (
       <div>
         <header className="week-header">
-          <div className="head-middle">
-            <nav className="week-selector">
-              <a href={`../${lastWeek}`}>&lt; Previous</a>
-              <span className="week-current"> Week of {weekDate} </span>
-              {nextWeek < new Date().getTime() / 1000 ? (
-                <a className="next-week" href={`../${nextWeek}`}>
-                  Next &gt;
-                </a>
-              ) : null}
-            </nav>
-            <small className="week-metadata">
-              {new Intl.NumberFormat().format(totalWords)} words |{" "}
-              {readTimeText}
-            </small>
-          </div>
+          <nav className="week-selector">
+            <a href={`../${lastWeek}`}>&lt; Previous</a>
+            <span className="week-current"> Week of {weekDate} </span>
+            {nextWeek < new Date().getTime() / 1000 ? (
+              <a className="next-week" href={`../${nextWeek}`}>
+                Next &gt;
+              </a>
+            ) : null}
+          </nav>
+          <small className="week-metadata">
+            {new Intl.NumberFormat().format(totalWords)} words | {readTimeText}
+          </small>
         </header>
         <div className="page-main-container">{articleList}</div>
       </div>
