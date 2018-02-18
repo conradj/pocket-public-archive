@@ -17,7 +17,7 @@ const IndexPage = pluginOptions => {
   //window.location = thisWeekTime;
 
   return (
-    <div>
+    <div className="page-main-container">
       <Helmet>
         <meta http-equiv="refresh" content={`0;url=${lastWeekTime}`} />;
       </Helmet>

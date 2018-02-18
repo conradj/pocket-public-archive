@@ -4,6 +4,8 @@
   border-radius: 5px;
   padding: 10px;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .article-link {
@@ -40,4 +42,8 @@
 
 .article-domain-favicon {
   margin-right: 0.25rem;
+}
+
+.article-image {
+  flex: 1;
 }
