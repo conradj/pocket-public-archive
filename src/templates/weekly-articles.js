@@ -7,6 +7,8 @@ const startOfWeek = require("date-fns/start_of_week");
 class WeeklyArticlesTemplate extends React.Component {
   render() {
     let totalWords = 0;
+    let totalArticles = 0;
+    let favouriteArticles = 0;
     let thisWeek = Date.parse(startOfWeek(new Date())) / 1000;
     const isData = this.props.data && this.props.data.allPocketArticle;
     if (isData) {
@@ -24,6 +26,9 @@ class WeeklyArticlesTemplate extends React.Component {
           let article = edge.node;
           if (article.title && article.url && article.word_count > 0) {
             totalWords += article.word_count;
+            totalArticles++;
+            console.log("article.favourite", article.favourite);
+            favouriteArticles += article.favourite ? 1 : 0;
             return <ArticleTemplate key={index} {...article} index={index} />;
           } else {
             console.warn("Article not loaded", article);
@@ -50,7 +55,8 @@ class WeeklyArticlesTemplate extends React.Component {
             ) : null}
           </nav>
           <small className="week-metadata">
-            {new Intl.NumberFormat().format(totalWords)} words | {readTimeText}
+            {new Intl.NumberFormat().format(totalWords)} words | {readTimeText}{" "}
+            | {favouriteArticles} favourite articles out of {totalArticles}
           </small>
         </header>
         <div className="page-main-container">{articleList}</div>
