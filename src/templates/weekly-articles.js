@@ -11,10 +11,12 @@ class WeeklyArticlesTemplate extends React.Component {
     let favouriteArticles = 0;
     let thisWeek = Date.parse(startOfWeek(new Date())) / 1000;
     const isData = this.props.data && this.props.data.allPocketArticle;
+    const data = this.props.data.allPocketArticle.edges;
     if (isData) {
       thisWeek = parseInt(
-        this.props.data.allPocketArticle.edges[0].node.readWeek
+        data[0].node.readWeek
       );
+      console.log("data", data);
     }
     const nextWeek = thisWeek + 604800;
     const lastWeek = thisWeek - 604800;
@@ -22,12 +24,11 @@ class WeeklyArticlesTemplate extends React.Component {
 
     const articleList = isData ? (
       <ul className="wrapper">
-        {this.props.data.allPocketArticle.edges.map((edge, index) => {
+        {data.map((edge, index) => {
           let article = edge.node;
           if (article.title && article.url && article.word_count > 0) {
             totalWords += article.word_count;
             totalArticles++;
-            console.log("article.favourite", article.favourite);
             favouriteArticles += article.favourite ? 1 : 0;
             return <ArticleTemplate key={index} {...article} index={index} />;
           } else {
@@ -55,8 +56,8 @@ class WeeklyArticlesTemplate extends React.Component {
             ) : null}
           </nav>
           <small className="week-metadata">
-            {new Intl.NumberFormat().format(totalWords)} words | {readTimeText}{" "}
-            | {favouriteArticles} favourite articles out of {totalArticles}
+            {totalArticles} articles | {favouriteArticles} favourited |{" "}
+            {new Intl.NumberFormat().format(totalWords)} words | {readTimeText}
           </small>
         </header>
         <div className="page-main-container">{articleList}</div>
