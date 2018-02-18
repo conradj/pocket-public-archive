@@ -1,55 +1,29 @@
 import React from "react";
 import ArticleTemplate from "./article";
 import "./weekly-articles.css";
-import FlipMove from "react-flip-move";
-
 const format = require("date-fns/format");
 const startOfWeek = require("date-fns/start_of_week");
 
 class WeeklyArticlesTemplate extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { sortType: "date" };
-  }
-
   render() {
     let totalWords = 0;
     let totalArticles = 0;
     let favouriteArticles = 0;
     let thisWeek = Date.parse(startOfWeek(new Date())) / 1000;
     const isData = this.props.data && this.props.data.allPocketArticle;
-    const sortType = this.state.sortType;
-    let data;
+    const data = this.props.data.allPocketArticle.edges;
     if (isData) {
-      data = this.props.data.allPocketArticle.edges.sort(function(a, b) {
-        switch (sortType) {
-          case "length":
-            return a.node.word_count - b.node.word_count;
-            break;
-          case "favourites":
-            return b.node.favourite - a.node.favourite;
-            break;
-          case "date":
-          default:
-            return a.node.time_read - b.node.time_read;
-        }
-      });
-      thisWeek = parseInt(data[0].node.readWeek);
+      thisWeek = parseInt(
+        data[0].node.readWeek
+      );
+      console.log("data", data);
     }
     const nextWeek = thisWeek + 604800;
     const lastWeek = thisWeek - 604800;
     const weekDate = format(new Date(thisWeek * 1000), "Do MMMM YYYY");
 
     const articleList = isData ? (
-      <FlipMove
-        staggerDurationBy="30"
-        duration={500}
-        appearAnimation="fade"
-        enterAnimation="fade"
-        leaveAnimation="fade"
-        typeName="ul"
-        className="wrapper"
-      >
+      <ul className="wrapper">
         {data.map((edge, index) => {
           let article = edge.node;
           if (article.title && article.url && article.word_count > 0) {
@@ -61,7 +35,7 @@ class WeeklyArticlesTemplate extends React.Component {
             console.warn("Article not loaded", article);
           }
         })}
-      </FlipMove>
+      </ul>
     ) : (
       <div>No Articles read yet this week</div>
     );
@@ -70,7 +44,7 @@ class WeeklyArticlesTemplate extends React.Component {
     const readTimeText = readTime < 2 ? "1 minute" : readTime + " minutes";
 
     return (
-      <div className="page-main-container">
+      <div>
         <header className="week-header">
           <nav className="week-selector">
             <a href={`../${lastWeek}`}>&lt; Previous</a>
@@ -81,29 +55,12 @@ class WeeklyArticlesTemplate extends React.Component {
               </a>
             ) : null}
           </nav>
-          <nav className="week-metadata-container">
-            <div className="week-metadata-first" />
-            <small className="week-metadata">
-              {totalArticles} articles | {favouriteArticles} favourited |{" "}
-              {new Intl.NumberFormat().format(totalWords)} words |{" "}
-              {readTimeText}
-            </small>
-            <div className="week-metadata-last">
-              <select
-                id="sortSelect"
-                onChange={event =>
-                  this.setState({ sortType: event.target.value })
-                }
-                value={this.state.sortType}
-              >
-                <option value="date">By date</option>
-                <option value="length">By length</option>
-                <option value="favourites">Favourites first</option>
-              </select>
-            </div>
-          </nav>
+          <small className="week-metadata">
+            {totalArticles} articles | {favouriteArticles} favourited |{" "}
+            {new Intl.NumberFormat().format(totalWords)} words | {readTimeText}
+          </small>
         </header>
-        <div>{articleList}</div>
+        <div className="page-main-container">{articleList}</div>
       </div>
     );
   }

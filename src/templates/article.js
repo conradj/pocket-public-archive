@@ -40,7 +40,7 @@ class ArticleTemplate extends React.Component {
     const readTimeText = readTime < 2 ? "1 minute" : readTime + " minutes";
 
     return (
-      <li id={url} className={classNames.join(" ")}>
+      <li className={classNames.join(" ")}>
         <div className="article-domain">
           <img className="article-domain-favicon" src={domainFavicon} />
           {articleDomain}
