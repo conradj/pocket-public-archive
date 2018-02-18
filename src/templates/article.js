@@ -62,10 +62,12 @@ class ArticleTemplate extends React.Component {
         </div>
         {image ? (
           <img
+            className="article-image"
             onError={e => {
               e.target.src =
                 "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
               e.target.alt = "";
+              e.target.style.display = "none";
             }}
             src={image.src}
           />
