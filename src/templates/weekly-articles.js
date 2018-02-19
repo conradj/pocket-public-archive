@@ -47,7 +47,6 @@ class WeeklyArticlesTemplate extends React.Component {
         leaveAnimation="fade"
         typeName="ul"
         className="wrapper"
-        // maintainContainerHeight={true}
       >
         {data.map((edge, index) => {
           let article = edge.node;
