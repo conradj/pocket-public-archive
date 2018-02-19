@@ -2,7 +2,7 @@ import React from "react";
 import Link from "gatsby-link";
 
 const Footer = () => (
-  <div
+  <nav
     style={{
       borderTop: "solid 1rem #78fecf",
       paddingBottom: "1.45rem"
@@ -23,20 +23,20 @@ const Footer = () => (
             color: "#3c3a40"
           }}
         >
-          Conrad Jackson
+          conrad jackson
         </a>
       </h4>
       <span style={{ float: "right" }}>
         <a href="https://twitter.com/conradj" target="_blank">
-          Twitter
+          twitter
         </a>{" "}
         |{" "}
         <a href="https://github.com/conradj" target="_blank">
-          Github
+          github
         </a>
       </span>
     </div>
-  </div>
+  </nav>
 );
 
 export default Footer;
