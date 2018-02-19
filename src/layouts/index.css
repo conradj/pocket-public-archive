@@ -1,5 +1,34 @@
-a:hover {
-  text-decoration: underline;
+/* Effect 3: bottom line slides/fades in */
+
+nav a {
+  position: relative;
+  padding: 2px 0;
+  text-decoration: none;
+  font-variant: small-caps;
+  font-family: sans-serif;
+}
+nav a,
+nav a:visited {
+  color: #3c3a40;
+}
+
+nav a::after {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #d81159;
+  content: "";
+  opacity: 0;
+  transition: opacity 0.8s, transform 0.3s;
+  /* transform: translateY(10px); */
+}
+
+nav a:hover::after,
+nav a:focus::after {
+  opacity: 1;
+  /* transform: translateY(0px); */
 }
 
 .page-main-container {

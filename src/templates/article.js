@@ -18,6 +18,7 @@ class ArticleTemplate extends React.Component {
     const {
       index,
       title,
+      has_image,
       image,
       excerpt,
       url,
@@ -28,19 +29,18 @@ class ArticleTemplate extends React.Component {
       time_read
     } = this.props;
     const classNames = ["article"];
-    if (index === 0) {
-      classNames.push("article-headline");
-    }
 
-    if (index === 1) {
+    if (favourite && has_image) {
+      classNames.push("article-headline");
+    } else if (favourite || has_image) {
       classNames.push("wide");
     }
 
     const readTime = parseInt(word_count / 275);
     const readTimeText = readTime < 2 ? "1 minute" : readTime + " minutes";
-
+    const style = { zIndex: 100 - index };
     return (
-      <li className={classNames.join(" ")}>
+      <div id={url} className={classNames.join(" ")} style={style}>
         <div className="article-domain">
           <img className="article-domain-favicon" src={domainFavicon} />
           {articleDomain}
@@ -80,7 +80,7 @@ class ArticleTemplate extends React.Component {
         >
           Read more
         </a>
-      </li>
+      </div>
     );
   }
 }
@@ -88,6 +88,7 @@ class ArticleTemplate extends React.Component {
 ArticleTemplate.propTypes = {
   index: PropTypes.number,
   title: PropTypes.string,
+  has_image: PropTypes.bool,
   image: PropTypes.object,
   excerpt: PropTypes.string,
   url: PropTypes.string,
