@@ -42,13 +42,12 @@ class WeeklyArticlesTemplate extends React.Component {
 
     const articleList = isData ? (
       <FlipMove
-        staggerDurationBy="30"
         duration={500}
-        appearAnimation="fade"
         enterAnimation="fade"
         leaveAnimation="fade"
         typeName="ul"
         className="wrapper"
+        // maintainContainerHeight={true}
       >
         {data.map((edge, index) => {
           let article = edge.node;
@@ -56,7 +55,9 @@ class WeeklyArticlesTemplate extends React.Component {
             totalWords += article.word_count;
             totalArticles++;
             favouriteArticles += article.favourite ? 1 : 0;
-            return <ArticleTemplate key={index} {...article} index={index} />;
+            return (
+              <ArticleTemplate key={article.title} {...article} index={index} />
+            );
           } else {
             console.warn("Article not loaded", article);
           }
@@ -73,22 +74,21 @@ class WeeklyArticlesTemplate extends React.Component {
       <div className="page-main-container">
         <header className="week-header">
           <nav className="week-selector">
-            <a href={`../${lastWeek}`}>&lt; Previous</a>
+            <a href={`../${lastWeek}`}>&lt; previous</a>
             <span className="week-current"> Week of {weekDate} </span>
             {nextWeek < new Date().getTime() / 1000 ? (
               <a className="next-week" href={`../${nextWeek}`}>
-                Next &gt;
+                next &gt;
               </a>
             ) : null}
           </nav>
           <nav className="week-metadata-container">
-            <div className="week-metadata-first" />
-            <small className="week-metadata">
+            <div className="week-metadata">
               {totalArticles} articles | {favouriteArticles} favourited |{" "}
               {new Intl.NumberFormat().format(totalWords)} words |{" "}
               {readTimeText}
-            </small>
-            <div className="week-metadata-last">
+            </div>
+            <div className="week-metadata-sort">
               <select
                 id="sortSelect"
                 onChange={event =>
