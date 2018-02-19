@@ -27,11 +27,7 @@ img {
 
 @media (min-width: 660px) {
   .wrapper {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-
-  .wide {
-    grid-column: auto / span 2;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 .week-header {
@@ -48,19 +44,21 @@ img {
 
 .week-metadata-container {
   display: flex;
+  flex-wrap: wrap;
   margin: 10px 10px 0;
 }
 
-.week-metadata-first,
-.week-metadata-last {
-  width: 20%;
+.week-metadata-sort {
+  flex: 1;
 }
-.week-metadata-last select {
-  float: right;
+.week-metadata-sort select {
   font-size: 0.8rem;
+  float: right;
 }
 
 .week-metadata {
   color: #bfbdc1;
-  flex: 1;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  text-align: left;
 }
