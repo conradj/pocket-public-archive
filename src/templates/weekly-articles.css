@@ -25,7 +25,7 @@ img {
   }
 }
 
-@media (min-width: 660px) {
+@media (min-width: 700px) {
   .wrapper {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }

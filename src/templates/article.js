@@ -51,7 +51,7 @@ class ArticleTemplate extends React.Component {
           onClick={event => this.saveGAEvent(event)}
           className="article-link"
         >
-          <h1 className="article-title">{title}</h1>
+          <h2 className="article-title">{title}</h2>
         </a>
         <div className="article-metadata">
           <small>
