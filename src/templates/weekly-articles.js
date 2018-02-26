@@ -45,10 +45,10 @@ class WeeklyArticlesTemplate extends React.Component {
 
     const articleList = isData ? (
       <FlipMove
+        staggerDurationBy={100}
         duration={500}
         enterAnimation="fade"
         leaveAnimation="fade"
-        typeName="ul"
         className="wrapper"
       >
         {data.map((edge, index) => {
