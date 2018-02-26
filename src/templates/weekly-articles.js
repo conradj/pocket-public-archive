@@ -2,6 +2,9 @@ import React from "react";
 import ArticleTemplate from "./article";
 import "./weekly-articles.css";
 import FlipMove from "react-flip-move";
+import FontAwesomeIcon from "@fortawesome/react-fontawesome";
+import faCaretLeft from "@fortawesome/fontawesome-free-solid/faCaretLeft";
+import faCaretRight from "@fortawesome/fontawesome-free-solid/faCaretRight";
 
 const format = require("date-fns/format");
 const startOfWeek = require("date-fns/start_of_week");
@@ -73,12 +76,23 @@ class WeeklyArticlesTemplate extends React.Component {
       <div className="page-main-container">
         <header className="week-header">
           <nav className="week-selector">
-            <a href={`../${lastWeek}`}>&lt; previous</a>
+            <a href={`../${lastWeek}`}>
+              <span className="fa-noline">
+                <FontAwesomeIcon icon={faCaretLeft} />&nbsp;
+              </span>
+              Previous
+            </a>
             <span className="week-current"> Week of {weekDate} </span>
             {nextWeek < new Date().getTime() / 1000 ? (
-              <a className="next-week" href={`../${nextWeek}`}>
-                next &gt;
-              </a>
+              <span>
+                <a className="next-week" href={`../${nextWeek}`}>
+                  Next
+                  <span className="fa-noline">
+                    &nbsp;
+                    <FontAwesomeIcon icon={faCaretRight} />
+                  </span>
+                </a>
+              </span>
             ) : null}
           </nav>
           <nav className="week-metadata-container">
