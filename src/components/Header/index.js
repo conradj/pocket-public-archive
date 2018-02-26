@@ -32,7 +32,7 @@ class Header extends React.Component {
           </div>
         </nav>
         <div className="site-name-container">
-          <h1 className="site-name">Read Articles</h1>
+          <h1 className="site-name">Weekly Digest</h1>
         </div>
       </header>
     );

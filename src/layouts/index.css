@@ -1,3 +1,7 @@
+body {
+  background-color: #fdfdfd;
+}
+
 /* Effect 3: bottom line slides/fades in */
 a,
 .fa-noline {
@@ -50,7 +54,7 @@ a:focus::after {
   left: 0;
   width: 100%;
   height: 3px;
-  background: #fff;
+  background: #fdfdfd;
   content: "";
   opacity: 1;
 }
