@@ -2,40 +2,8 @@ body {
   background-color: #fdfdfd;
 }
 
-/* Effect 3: bottom line slides/fades in */
-a,
-.fa-noline {
-  position: relative;
-  padding: 2px 0;
-  text-decoration: none;
-  /* font-variant: small-caps; */
-  /* font-family: sans-serif; */
-}
-
-a,
-a:visited {
-  color: #d81159;
-}
-
-a::after,
-.fa-line::after {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: #d81159;
-  content: "";
-  opacity: 0;
-  transition: opacity 0.8s, transform 0.3s;
-  z-index: -1;
-  /* transform: translateY(10px); */
-}
-
-a:hover::after,
-a:focus::after {
-  opacity: 1;
-  /* transform: translateY(0px); */
+iframe {
+  margin: 0;
 }
 
 .page-main-container {
@@ -44,17 +12,16 @@ a:focus::after {
   padding: 0px 1.0875rem 1.45rem;
 }
 
-.fa-noline {
+.link-effect {
+  text-decoration: none;
   color: #d81159;
 }
 
-.fa-noline::after {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: #fdfdfd;
-  content: "";
-  opacity: 1;
+.link-effect span {
+  transition: all 0.25s ease-in-out;
+  border-bottom: 3px solid transparent;
+}
+
+.link-effect:hover span {
+  border-bottom: 3px solid #d81159;
 }
