@@ -76,21 +76,17 @@ class WeeklyArticlesTemplate extends React.Component {
       <div className="page-main-container">
         <header className="week-header">
           <nav className="week-selector">
-            <a href={`../${lastWeek}`}>
-              <span className="fa-noline">
-                <FontAwesomeIcon icon={faCaretLeft} />&nbsp;
-              </span>
-              Previous
+            <a href={`../${lastWeek}`} className="link-effect">
+              <FontAwesomeIcon icon={faCaretLeft} />&nbsp;
+              <span>Previous</span>
             </a>
             <span className="week-current"> Week of {weekDate} </span>
             {nextWeek < new Date().getTime() / 1000 ? (
               <span>
-                <a className="next-week" href={`../${nextWeek}`}>
-                  Next
-                  <span className="fa-noline">
-                    &nbsp;
-                    <FontAwesomeIcon icon={faCaretRight} />
-                  </span>
+                <a className="next-week link-effect" href={`../${nextWeek}`}>
+                  <span>Next</span>
+                  &nbsp;
+                  <FontAwesomeIcon icon={faCaretRight} />
                 </a>
               </span>
             ) : null}

@@ -2,6 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./article.css";
 import format from "date-fns/format";
+// import PocketButton from "../components/PocketButton";
+import FontAwesomeIcon from "@fortawesome/react-fontawesome";
+import faExternalLink from "@fortawesome/fontawesome-free-solid/faExternalLinkSquareAlt";
 
 class ArticleTemplate extends React.Component {
   saveGAEvent(event) {
@@ -59,6 +62,7 @@ class ArticleTemplate extends React.Component {
             | {format(new Date(time_read * 1000), "dddd ha")}
             {favourite ? " | Favourited" : ""}
           </small>
+          {/* <PocketButton url={url} count="horizontal" /> */}
         </div>
         {image ? (
           <img
@@ -72,14 +76,18 @@ class ArticleTemplate extends React.Component {
             src={image.src}
           />
         ) : null}
-        <p>{excerpt}</p>
-        <a
-          href={url}
-          target="_blank"
-          onClick={event => this.saveGAEvent(event)}
-        >
-          Read more
-        </a>
+        <p className="article-excerpt">{excerpt}</p>
+        <div className="article-readmore-container">
+          <a
+            href={url}
+            target="_blank"
+            onClick={event => this.saveGAEvent(event)}
+            className="link-effect"
+          >
+            <span>Read more</span>
+            &nbsp;<FontAwesomeIcon icon={faExternalLink} />
+          </a>
+        </div>
       </div>
     );
   }

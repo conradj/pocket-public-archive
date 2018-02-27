@@ -14,20 +14,26 @@ class Header extends React.Component {
       <header>
         <nav className="top-nav">
           <div className="top-nav-first">
-            <Link to="/">
-              <FontAwesomeIcon icon={faHome} className="fa-noline" />
+            <Link to="/" className="link-effect">
+              <span>
+                <FontAwesomeIcon icon={faHome} />
+              </span>
             </Link>{" "}
-            | <Link to="/about">about this site</Link>
+            |{" "}
+            <Link to="/about" className="link-effect">
+              <span>about this site</span>
+            </Link>
           </div>
           <div className="top-nav-middle">
             <h2 className="top-nav-title">Conrad Jackson</h2>
           </div>
           <div className="top-nav-last">
-            <a href="https://conradj.co.uk" className="nav-external">
-              conradj.co.uk
-              <span className="fa-noline">
-                &nbsp;<FontAwesomeIcon icon={faExternalLink} />
-              </span>
+            <a
+              href="https://conradj.co.uk"
+              className="nav-external link-effect"
+            >
+              <span>conradj.co.uk</span>
+              &nbsp;<FontAwesomeIcon icon={faExternalLink} />
             </a>
           </div>
         </nav>

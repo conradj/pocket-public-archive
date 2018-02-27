@@ -21,19 +21,34 @@ const Footer = () => (
     >
       <h4 style={{ margin: 0, float: "left" }}>
         Site by{" "}
-        <a href="https://conradj.co.uk/#contact" target="_blank">
-          Conrad Jackson<span className="fa-noline">
-            &nbsp;<FontAwesomeIcon icon={faExternalLink} />
-          </span>
+        <a
+          href="https://conradj.co.uk/#contact"
+          target="_blank"
+          className="link-effect"
+        >
+          <span>Conrad Jackson</span>
+          &nbsp;<FontAwesomeIcon icon={faExternalLink} />
         </a>
       </h4>
       <span style={{ float: "right" }}>
-        <a href="https://twitter.com/conradj" target="_blank">
-          <FontAwesomeIcon icon={faTwitter} />
+        <a
+          href="https://twitter.com/conradj"
+          target="_blank"
+          className="link-effect"
+        >
+          <span>
+            <FontAwesomeIcon icon={faTwitter} />
+          </span>
         </a>{" "}
         |{" "}
-        <a href="https://github.com/conradj" target="_blank">
-          <FontAwesomeIcon icon={faGithub} />
+        <a
+          href="https://github.com/conradj"
+          target="_blank"
+          className="link-effect"
+        >
+          <span>
+            <FontAwesomeIcon icon={faGithub} />
+          </span>
         </a>
       </span>
     </div>
