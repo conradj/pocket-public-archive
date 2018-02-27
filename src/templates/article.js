@@ -73,7 +73,7 @@ class ArticleTemplate extends React.Component {
               e.target.alt = "";
               e.target.style.display = "none";
             }}
-            src={image.src}
+            src={image.src.replace(/^http:\/\//i, 'https://')}
           />
         ) : null}
         <p className="article-excerpt">{excerpt}</p>
