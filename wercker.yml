@@ -59,9 +59,7 @@ deploy:
         
 screenshot:
   # take a screenshot and ftp to site folder for twitter/facebook cards
-  box: 
-    id: wernight/phantomjs
-    cmd: /bin/sh
+  box: servebox/phantomjs
   steps:
     - screenshot:
         url: https://conradj.co.uk/weeklyreads/1518912000/
