@@ -55,20 +55,26 @@ deploy:
     - kobim/notify-pushover:
         token: $PUSHOVER_APP_TOKEN
         user: $PUSHOVER_USER_TOKEN
+        title: deployed site
 screenshot:
-  steps:
-    # take a screenshot!
+    # take a screenshot and ftp to site folder for twitter/facebook cards
     box: cmfatih/phantomjs
     steps:
       - screenshot:
           cwd: screenshots/
           url: https://conradj.co.uk/weeklyreads/1518912000/
           filename: 1518912000.png
-    after-steps:
+deploy-screenshot:
+  steps:
     # deploy to azure
-      - wercker-labs/azure-ftp-deploy:
-          cwd: screenshots/
-          publish-url: $publish_url
-          username: $username
-          password: $password
-  
+    - wercker-labs/azure-ftp-deploy:
+        cwd: screenshots/
+        publish-url: $publish_url
+        username: $username
+        password: $password
+
+  after-steps:
+    - kobim/notify-pushover:
+        token: $PUSHOVER_APP_TOKEN
+        user: $PUSHOVER_USER_TOKEN
+        title: deployed screenshot
