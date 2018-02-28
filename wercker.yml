@@ -64,7 +64,6 @@ screenshot:
     cmd: /bin/sh
   steps:
     - screenshot:
-        cwd: screenshots/
         url: https://conradj.co.uk/weeklyreads/1518912000/
         filename: 1518912000.png
           
@@ -72,7 +71,6 @@ deploy-screenshot:
   steps:
     # deploy to azure
     - wercker-labs/azure-ftp-deploy:
-        cwd: screenshots/
         publish-url: $publish_url
         username: $username
         password: $password
