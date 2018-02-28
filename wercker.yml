@@ -55,7 +55,7 @@ deploy:
     - kobim/notify-pushover:
         token: $PUSHOVER_APP_TOKEN
         user: $PUSHOVER_USER_TOKEN
-        title: deployed site
+        title: Deployed Weekly Digest
 screenshot:
     # take a screenshot and ftp to site folder for twitter/facebook cards
     box: wernight/phantomjs
@@ -78,4 +78,4 @@ deploy-screenshot:
     - kobim/notify-pushover:
         token: $PUSHOVER_APP_TOKEN
         user: $PUSHOVER_USER_TOKEN
-        title: deployed screenshot
+        title: Updated Screenshot
