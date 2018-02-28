@@ -58,7 +58,7 @@ deploy:
         title: deployed site
 screenshot:
     # take a screenshot and ftp to site folder for twitter/facebook cards
-    box: cmfatih/phantomjs
+    box: wernight/phantomjs
     steps:
       - screenshot:
           cwd: screenshots/
