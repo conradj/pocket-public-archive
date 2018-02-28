@@ -58,14 +58,14 @@ deploy:
         title: Deployed Weekly Digest
         
 screenshot:
-    # take a screenshot and ftp to site folder for twitter/facebook cards
-    box: wernight/phantomjs
-    cmd: /bin/sh
-    steps:
-      - screenshot:
-          cwd: screenshots/
-          url: https://conradj.co.uk/weeklyreads/1518912000/
-          filename: 1518912000.png
+  # take a screenshot and ftp to site folder for twitter/facebook cards
+  box: wernight/phantomjs
+  cmd: /bin/sh
+  steps:
+    - screenshot:
+        cwd: screenshots/
+        url: https://conradj.co.uk/weeklyreads/1518912000/
+        filename: 1518912000.png
           
 deploy-screenshot:
   steps:
