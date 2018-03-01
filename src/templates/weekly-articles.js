@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { withRouter } from "react-router";
 import ArticleTemplate from "./article";
 import "./weekly-articles.css";
 import FlipMove from "react-flip-move";
@@ -16,6 +18,8 @@ class WeeklyArticlesTemplate extends React.Component {
   }
 
   render() {
+    console.log("props", this.props.location.search);
+    const renderForScreenshot = this.props.location.search === "?screenshot";
     let totalWords = 0;
     let totalArticles = 0;
     let favouriteArticles = 0;
@@ -37,8 +41,10 @@ class WeeklyArticlesTemplate extends React.Component {
             return a.node.time_read - b.node.time_read;
         }
       });
+      data = renderForScreenshot ? [data[0]] : data;
       thisWeek = parseInt(data[0].node.readWeek);
     }
+
     const nextWeek = thisWeek + 604800;
     const lastWeek = thisWeek - 604800;
     const weekDate = format(new Date(thisWeek * 1000), "Do MMMM YYYY");
@@ -117,6 +123,20 @@ class WeeklyArticlesTemplate extends React.Component {
     );
   }
 }
+
+WeeklyArticlesTemplate.propTypes = {
+  index: PropTypes.number,
+  title: PropTypes.string,
+  has_image: PropTypes.bool,
+  image: PropTypes.object,
+  excerpt: PropTypes.string,
+  url: PropTypes.string,
+  domainFavicon: PropTypes.string,
+  articleDomain: PropTypes.string,
+  favourite: PropTypes.bool,
+  word_count: PropTypes.number,
+  time_read: PropTypes.number
+};
 
 export default WeeklyArticlesTemplate;
 

@@ -62,7 +62,7 @@ screenshot:
   box: markxnelson/phantomjs
   steps:
     - screenshot:
-        url: https://conradj.co.uk/weeklyreads/1518912000/
+        url: https://conradj.co.uk/weeklyreads/1518912000/?screenshot
         filename: 1518912000.png
         viewport_width: 500
         viewport_height: 500
