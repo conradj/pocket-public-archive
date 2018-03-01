@@ -64,6 +64,8 @@ screenshot:
     - screenshot:
         url: https://conradj.co.uk/weeklyreads/1518912000/
         filename: 1518912000.png
+        viewport_width: 500
+        viewport_height: 500
           
 deploy-screenshot:
   steps:
