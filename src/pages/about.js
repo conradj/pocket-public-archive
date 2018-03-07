@@ -2,8 +2,14 @@ import React from "react";
 
 const AboutPage = () => (
   <div className="page-main-container">
-    <h1>What is this?</h1>
-    <p>This site shows all of the articles I've read on Pocket, by week.</p>
+    <p>
+      I made this site to shows all of the articles I've read on Pocket, by
+      week.
+    </p>
+    <p>
+      As a non-blogger this is a different way of sharing the subjects and
+      topics that I find interesting.
+    </p>
     <p>
       Over time I plan to add more features, such as stats, and different ways
       to search and order articles.
@@ -22,6 +28,7 @@ const AboutPage = () => (
       </a>{" "}
       and crack on!
     </p>
+    <h3>What is Pocket?</h3>
     <p>
       I use the{" "}
       <a href="https://getpocket.com" target="_blank">
@@ -34,7 +41,8 @@ const AboutPage = () => (
       Pocket is great, because it strips out all of the ads and other
       extraeneous parts of an article, and just gives you the text. It also
       works offline, which is a lifesaver on my daily commute, as I go through
-      quite a few reception cold spots.
+      quite a few reception cold spots. It's great having something interesting
+      to read wherever I am.
     </p>
   </div>
 );
