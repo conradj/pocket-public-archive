@@ -14,7 +14,7 @@ const startOfWeek = require("date-fns/start_of_week");
 class WeeklyArticlesTemplate extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { sortType: "date" };
+    this.state = { sortType: "favourites" };
   }
 
   render() {
@@ -33,12 +33,19 @@ class WeeklyArticlesTemplate extends React.Component {
           case "length":
             return a.node.word_count - b.node.word_count;
             break;
-          case "favourites":
-            return b.node.favourite - a.node.favourite;
-            break;
           case "date":
-          default:
             return a.node.time_read - b.node.time_read;
+            break;
+          case "favourites":
+          default:
+            if (b.node.favourite < a.node.favourite) {
+              return -1;
+            }
+
+            if (b.node.favourite > a.node.favourite) {
+              return 1;
+            }
+            return b.node.word_count - a.node.word_count;
         }
       });
       data = renderForScreenshot ? [data[0]] : data;
@@ -111,9 +118,9 @@ class WeeklyArticlesTemplate extends React.Component {
                 }
                 value={this.state.sortType}
               >
+                <option value="favourites">Favourites first</option>
                 <option value="date">By date</option>
                 <option value="length">By length</option>
-                <option value="favourites">Favourites first</option>
               </select>
             </div>
           </nav>
