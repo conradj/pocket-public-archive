@@ -49,3 +49,11 @@
   flex: 1;
   text-align: center;
 }
+
+@media (max-width: 460px) {
+  .site-name {
+    font-size: 1.5rem;
+    margin-top: 0.45rem;
+    margin-bottom: 0.45rem;
+  }
+}

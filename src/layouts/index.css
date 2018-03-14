@@ -25,3 +25,9 @@ iframe {
 .link-effect:hover span {
   border-bottom: 3px solid #d81159;
 }
+
+@media (max-width: 460px) {
+  .page-main-container {
+    padding: 0;
+  }
+}

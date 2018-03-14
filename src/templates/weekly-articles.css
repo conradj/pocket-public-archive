@@ -79,3 +79,13 @@ img {
   text-align: left;
   flex: 1;
 }
+
+@media (max-width: 460px) {
+  .week-header {
+    border-bottom: 1px solid #ccc;
+  }
+
+  .week-metadata-container {
+    display: none;
+  }
+}
