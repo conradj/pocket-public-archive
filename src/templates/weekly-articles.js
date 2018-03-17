@@ -7,6 +7,7 @@ import FlipMove from "react-flip-move";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import faCaretLeft from "@fortawesome/fontawesome-free-solid/faCaretLeft";
 import faCaretRight from "@fortawesome/fontawesome-free-solid/faCaretRight";
+import Navigation from "../components/WeekNav";
 
 const format = require("date-fns/format");
 const startOfWeek = require("date-fns/start_of_week");
@@ -86,9 +87,11 @@ class WeeklyArticlesTemplate extends React.Component {
     const readTimeText = readTime < 2 ? "1 minute" : readTime + " minutes";
 
     return (
-      <div className="page-main-container">
-        <header className="week-header">
-          <nav className="week-selector">
+      <div>
+        <Navigation currentWeek={thisWeek} />
+        <div className="page-main-container">
+          <header className="week-header">
+            {/* <nav className="week-selector">
             <a href={`../${lastWeek}`} className="link-effect">
               <FontAwesomeIcon icon={faCaretLeft} />&nbsp;
               <span>Previous</span>
@@ -103,29 +106,30 @@ class WeeklyArticlesTemplate extends React.Component {
                 </a>
               </span>
             ) : null}
-          </nav>
-          <nav className="week-metadata-container">
-            <div className="week-metadata">
-              {totalArticles} articles | {favouriteArticles} favourited |{" "}
-              {new Intl.NumberFormat().format(totalWords)} words |{" "}
-              {readTimeText}
-            </div>
-            <div className="week-metadata-sort">
-              <select
-                id="sortSelect"
-                onChange={event =>
-                  this.setState({ sortType: event.target.value })
-                }
-                value={this.state.sortType}
-              >
-                <option value="favourites">Favourites first</option>
-                <option value="date">By date</option>
-                <option value="length">By length</option>
-              </select>
-            </div>
-          </nav>
-        </header>
-        <div>{articleList}</div>
+          </nav> */}
+            <nav className="week-metadata-container">
+              <div className="week-metadata">
+                {totalArticles} articles | {favouriteArticles} favourited |{" "}
+                {new Intl.NumberFormat().format(totalWords)} words |{" "}
+                {readTimeText}
+              </div>
+              <div className="week-metadata-sort">
+                <select
+                  id="sortSelect"
+                  onChange={event =>
+                    this.setState({ sortType: event.target.value })
+                  }
+                  value={this.state.sortType}
+                >
+                  <option value="favourites">Favourites first</option>
+                  <option value="date">By date</option>
+                  <option value="length">By length</option>
+                </select>
+              </div>
+            </nav>
+          </header>
+          <div>{articleList}</div>
+        </div>
       </div>
     );
   }

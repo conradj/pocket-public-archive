@@ -39,6 +39,10 @@ class ArticleTemplate extends React.Component {
       classNames.push("wide");
     }
 
+    if (!has_image) {
+      classNames.push("article-no-image");
+    }
+
     const readTime = parseInt(word_count / 275);
     const readTimeText = readTime < 2 ? "1 minute" : readTime + " minutes";
     const style = { zIndex: 100 - index };
@@ -64,18 +68,38 @@ class ArticleTemplate extends React.Component {
           </small>
           {/* <PocketButton url={url} count="horizontal" /> */}
         </div>
+
         {image ? (
-          <img
-            className="article-image"
-            onError={e => {
-              e.target.src =
-                "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
-              e.target.alt = "";
-              e.target.style.display = "none";
-            }}
-            src={image.src.replace(/^http:\/\//i, 'https://')}
-          />
-        ) : null}
+          <div className="article-image">
+            <div
+              style={{
+                backgroundImage: `url(${image.src.replace(
+                  /^http:\/\//i,
+                  "https://"
+                )})`
+              }}
+            />
+            <img
+              onError={e => {
+                e.target.src =
+                  "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+                e.target.alt = "";
+                e.target.style.display = "none";
+              }}
+              src={image.src.replace(/^http:\/\//i, "https://")}
+            />
+          </div>
+        ) : // <img
+        //   className="article-image"
+        //   onError={e => {
+        //     e.target.src =
+        //       "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+        //     e.target.alt = "";
+        //     e.target.style.display = "none";
+        //   }}
+        //   src={image.src.replace(/^http:\/\//i, 'https://')}
+        // />
+        null}
         <p className="article-excerpt">{excerpt}</p>
         <div className="article-readmore-container">
           <a
