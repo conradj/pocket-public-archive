@@ -23,7 +23,7 @@ class Navigation extends React.Component {
       "Do MMMM YYYY"
     );
     return (
-      <nav className="navigation-app">
+      <nav className="navigation-week">
         <div className="nav-week-title">{currentWeekDate}</div>
         <a href={`../${lastWeek}`} className="nav-week-previous link-effect">
           <FontAwesomeIcon icon={faCaretLeft} />&nbsp;
