@@ -7,7 +7,7 @@ import FlipMove from "react-flip-move";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import faCaretLeft from "@fortawesome/fontawesome-free-solid/faCaretLeft";
 import faCaretRight from "@fortawesome/fontawesome-free-solid/faCaretRight";
-import Navigation from "../components/NavigationBar";
+import Navigation from "../components/WeekNav";
 
 const format = require("date-fns/format");
 const startOfWeek = require("date-fns/start_of_week");

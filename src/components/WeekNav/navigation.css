@@ -1,0 +1,50 @@
+.navigation-week {
+  display: grid;
+  /* grid-template-columns: [week-previous] 1fr [week-next] 1fr [week-title] 2fr [nav-home] 1fr [nav-about] 1fr [nav-user] 1fr; */
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1 10vh;
+  grid-template-areas: "previous weekTxt next";
+  background-color: #bfbdc1;
+  font-family: sans-serif;
+  font-size: 1rem;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  border-bottom: #d81159 solid 2px;
+  white-space: nowrap;
+  z-index: 1000;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.nav-week-previous {
+  grid-area: previous;
+  align-self: start;
+}
+
+.nav-week-next {
+  grid-area: next;
+  text-align: right;
+}
+
+.nav-week-title {
+  grid-area: weekTxt;
+  align-self: center;
+  text-align: center;
+  font-family: "Kadwa,serif";
+  margin: 0 10px;
+}
+
+@media (min-width: 460px) {
+  .navigation-week {
+    font-size: 1.25rem;
+    background-color: unset;
+    position: relative;
+    box-shadow: unset;
+  }
+  .nav-week-previous {
+    text-align: right;
+  }
+  .nav-week-next {
+    text-align: left;
+  }
+}
