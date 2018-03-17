@@ -68,16 +68,27 @@ class ArticleTemplate extends React.Component {
           </small>
           {/* <PocketButton url={url} count="horizontal" /> */}
         </div>
+
         {image ? (
-          <div
-            className="article-image"
-            style={{
-              backgroundImage: `url(${image.src.replace(
-                /^http:\/\//i,
-                "https://"
-              )})`
-            }}
-          />
+          <div className="article-image">
+            <div
+              style={{
+                backgroundImage: `url(${image.src.replace(
+                  /^http:\/\//i,
+                  "https://"
+                )})`
+              }}
+            />
+            <img
+              onError={e => {
+                e.target.src =
+                  "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+                e.target.alt = "";
+                e.target.style.display = "none";
+              }}
+              src={image.src.replace(/^http:\/\//i, "https://")}
+            />
+          </div>
         ) : // <img
         //   className="article-image"
         //   onError={e => {
