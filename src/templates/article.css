@@ -32,6 +32,10 @@
   color: #bfbdc1;
 }
 
+.article-metadata-read-time {
+  display: none;
+}
+
 .article-domain {
   font-size: 0.8rem;
   /* font-weight: bold; */
@@ -126,7 +130,7 @@
     /* autoprefixer: off */
     grid-row: 3 / 4;
     grid-column: 1 / 2;
-    padding: 0.45rem 1.0875rem 0.2rem;
+    padding: 0rem 1.0875rem 0.2rem;
   }
 }
 
@@ -137,6 +141,10 @@
 
   .article-image img {
     display: block;
+  }
+
+  .article-metadata-read-time {
+    display: inline-block;
   }
 }
 

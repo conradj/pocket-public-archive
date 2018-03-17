@@ -63,7 +63,9 @@ class ArticleTemplate extends React.Component {
         <div className="article-metadata">
           <small>
             {new Intl.NumberFormat().format(word_count)} words | {readTimeText}{" "}
-            | {format(new Date(time_read * 1000), "dddd ha")}
+            <span className="article-metadata-read-time">
+              | {format(new Date(time_read * 1000), "dddd ha")}
+            </span>
             {favourite ? " | Favourited" : ""}
           </small>
           {/* <PocketButton url={url} count="horizontal" /> */}
@@ -89,17 +91,7 @@ class ArticleTemplate extends React.Component {
               src={image.src.replace(/^http:\/\//i, "https://")}
             />
           </div>
-        ) : // <img
-        //   className="article-image"
-        //   onError={e => {
-        //     e.target.src =
-        //       "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
-        //     e.target.alt = "";
-        //     e.target.style.display = "none";
-        //   }}
-        //   src={image.src.replace(/^http:\/\//i, 'https://')}
-        // />
-        null}
+        ) : null}
         <p className="article-excerpt">{excerpt}</p>
         <div className="article-readmore-container">
           <a
