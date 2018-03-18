@@ -2,13 +2,15 @@ import React from "react";
 
 const AboutPage = () => (
   <div className="page-main-container">
+    <p />
+    <h3>What is Weekly Digest?</h3>
     <p>
       I made this site to shows all of the articles I've read on Pocket, by
       week.
     </p>
     <p>
-      As a non-blogger this is a different way of sharing the subjects and
-      topics that I find interesting.
+      As I don't blog this is a different way of sharing the subjects and topics
+      that I find interesting.
     </p>
     <p>
       Over time I plan to add more features, such as stats, and different ways
