@@ -29,14 +29,16 @@ class Navigation extends React.Component {
           <FontAwesomeIcon icon={faCaretLeft} />&nbsp;
           <span>Previous</span>
         </a>
-        <a
-          className="nav-week-next next-week link-effect"
-          href={`../${nextWeek}`}
-        >
-          <span>Next</span>
-          &nbsp;
-          <FontAwesomeIcon icon={faCaretRight} />
-        </a>
+        {nextWeek < new Date().getTime() / 1000 ? (
+          <a
+            className="nav-week-next next-week link-effect"
+            href={`../${nextWeek}`}
+          >
+            <span>Next</span>
+            &nbsp;
+            <FontAwesomeIcon icon={faCaretRight} />
+          </a>
+        ) : null}
       </nav>
     );
   }
