@@ -73,7 +73,11 @@ class ArticleTemplate extends React.Component {
 
         {image ? (
           <div className="article-image">
-            <div
+            <a
+              href={url}
+              target="_blank"
+              onClick={event => this.saveGAEvent(event)}
+              className="article-link"
               style={{
                 backgroundImage: `url(${image.src.replace(
                   /^http:\/\//i,
