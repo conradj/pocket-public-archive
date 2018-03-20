@@ -136,7 +136,7 @@
 }
 
 @media (min-width: 460px) {
-  .article-image div {
+  .article-image a {
     display: none;
   }
 
