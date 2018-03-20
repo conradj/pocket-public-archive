@@ -89,6 +89,24 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           // get next week timestamp
           startOfWeekTime = startOfWeekTime + 604800;
         }
+
+        createPage({
+          path: "thisweek",
+          component: weeklyArticlesTemplate,
+          layout: `index`,
+          context: {
+            currentWeekFilter: startOfWeekTime - 604800
+          }
+        });
+
+        createPage({
+          path: "lastweek",
+          component: weeklyArticlesTemplate,
+          layout: `index`,
+          context: {
+            currentWeekFilter: startOfWeekTime - 604800 - 604800
+          }
+        });
       })
     );
   });
