@@ -80,6 +80,16 @@ img {
   flex: 1;
 }
 
+.week-container.screenshot .week-metadata {
+  text-align: center;
+  color: #3c3a40;
+  font-size: 1rem;
+}
+
+.week-container.screenshot .week-metadata-sort {
+  display: none;
+}
+
 @media (max-width: 460px) {
   .week-header {
     border-bottom: 1px solid #ccc;

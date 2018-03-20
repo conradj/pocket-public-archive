@@ -16,6 +16,10 @@
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
+.week-container.screenshot .navigation-week {
+  display: none;
+}
+
 .nav-week-previous {
   grid-area: previous;
   align-self: start;
@@ -24,6 +28,11 @@
 .nav-week-next {
   grid-area: next;
   text-align: right;
+}
+
+.week-container.screenshot .nav-week-previous,
+.week-container.screenshot .nav-week-next {
+  display: none;
 }
 
 .nav-week-title {

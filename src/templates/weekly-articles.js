@@ -15,12 +15,19 @@ const startOfWeek = require("date-fns/start_of_week");
 class WeeklyArticlesTemplate extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { sortType: "favourites" };
+    console.log("ctor props", this.props.location.search);
+    const renderForScreenshot = this.props.location.search === "?screenshot";
+    console.log("renderForScreenshot", renderForScreenshot);
+    this.state = {
+      sortType: "favourites",
+      renderForScreenshot: renderForScreenshot
+    };
   }
 
   render() {
-    console.log("props", this.props.location.search);
-    const renderForScreenshot = this.props.location.search === "?screenshot";
+    const { renderForScreenshot } = this.state;
+    console.log("renderForScreenshot", renderForScreenshot);
+    renderForScreenshot;
     let totalWords = 0;
     let totalArticles = 0;
     let favouriteArticles = 0;
@@ -49,7 +56,6 @@ class WeeklyArticlesTemplate extends React.Component {
             return b.node.word_count - a.node.word_count;
         }
       });
-      data = renderForScreenshot ? [data[0]] : data;
       thisWeek = parseInt(data[0].node.readWeek);
     }
 
@@ -87,26 +93,12 @@ class WeeklyArticlesTemplate extends React.Component {
     const readTimeText = readTime < 2 ? "1 minute" : readTime + " minutes";
 
     return (
-      <div>
+      <div
+        className={`week-container ${renderForScreenshot ? "screenshot" : ""}`}
+      >
         <Navigation currentWeek={thisWeek} />
         <div className="page-main-container">
           <header className="week-header">
-            {/* <nav className="week-selector">
-            <a href={`../${lastWeek}`} className="link-effect">
-              <FontAwesomeIcon icon={faCaretLeft} />&nbsp;
-              <span>Previous</span>
-            </a>
-            <span className="week-current"> Week of {weekDate} </span>
-            {nextWeek < new Date().getTime() / 1000 ? (
-              <span>
-                <a className="next-week link-effect" href={`../${nextWeek}`}>
-                  <span>Next</span>
-                  &nbsp;
-                  <FontAwesomeIcon icon={faCaretRight} />
-                </a>
-              </span>
-            ) : null}
-          </nav> */}
             <nav className="week-metadata-container">
               <div className="week-metadata">
                 {totalArticles} articles | {favouriteArticles} favourited |{" "}
@@ -128,7 +120,7 @@ class WeeklyArticlesTemplate extends React.Component {
               </div>
             </nav>
           </header>
-          <div>{articleList}</div>
+          <div>{renderForScreenshot ? null : articleList}</div>
         </div>
       </div>
     );
