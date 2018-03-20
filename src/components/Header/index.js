@@ -15,7 +15,7 @@ class Header extends React.Component {
       <header>
         <nav className="top-nav">
           <div className="top-nav-first">
-            <Link to="/" className="link-effect">
+            <Link to="/thisweek" className="link-effect">
               <span>
                 <FontAwesomeIcon icon={faHome} />
               </span>
