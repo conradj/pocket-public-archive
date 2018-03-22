@@ -110,7 +110,7 @@ class WeeklyArticlesTemplate extends React.Component {
           />
           <meta
             name="twitter:image"
-            content={`https://conradj.com/weeklyreads/${thisWeek}.png?${Date.parse(
+            content={`https://conradj.co.uk/weeklyreads/${thisWeek}.png?${Date.parse(
               new Date()
             )}`}
           />
