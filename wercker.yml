@@ -63,20 +63,11 @@ screenshot:
   steps:
     - script:
         code: |
-          echo date
-          echo "date1 $(date)"
-          echo "date2 $(-dmonday +%Y%m%d)"
-          echo "date3 $(-dsunday +%Y%m%d)"
-          echo "date4 $(-dsunday +s)"
+          echo "date new $(date -v -Sun -v 0H -v 0M -v 0S +%s)"
+          export SCREENSHOT_FILENAME="public/screenshots/$(date -v -Sun -v 0H -v 0M -v 0S +%s).png"
     - screenshot:
         url: https://conradj.co.uk/weeklyreads/thisweek?screenshot
-        filename: public/screenshots/thisweek.png
-        create_file_in_artifacts: false
-        viewport_width: 550
-        viewport_height: 500
-    - screenshot:
-        url: https://conradj.co.uk/weeklyreads/lastweek?screenshot
-        filename: public/screenshots/lastweek.png
+        filename: $SCREENSHOT_FILENAME
         create_file_in_artifacts: false
         viewport_width: 550
         viewport_height: 500
