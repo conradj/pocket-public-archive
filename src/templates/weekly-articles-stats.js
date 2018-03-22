@@ -23,16 +23,30 @@ class WeeklyArticlesStatsTemplate extends React.Component {
       thisWeek = parseInt(data[0].node.readWeek);
     }
 
-    if (isData) {
-      data.map((edge, index) => {
-        let article = edge.node;
-        if (article.title && article.url && article.word_count > 0) {
-          totalWords += article.word_count;
-          totalArticles++;
-          favouriteArticles += article.favourite ? 1 : 0;
-        }
-      });
-    }
+    const imageThumbs = isData
+      ? data.map((edge, index) => {
+          let article = edge.node;
+          if (article.title && article.url && article.word_count > 0) {
+            totalWords += article.word_count;
+            totalArticles++;
+            favouriteArticles += article.favourite ? 1 : 0;
+          }
+
+          if ((article.has_image, article.image)) {
+            return (
+              <div
+                className="metadata-image"
+                style={{
+                  backgroundImage: `url(${article.image.src.replace(
+                    /^http:\/\//i,
+                    "https://"
+                  )})`
+                }}
+              />
+            );
+          }
+        })
+      : null;
 
     const readTime = parseInt(totalWords / 275);
     const readTimeText = readTime < 2 ? "1 minute" : readTime + " minutes";
@@ -45,6 +59,7 @@ class WeeklyArticlesStatsTemplate extends React.Component {
           totalWords={totalWords}
           readTimeText={readTimeText}
         />
+        <div className="image-thumbs">{imageThumbs}</div>
       </div>
     );
   }

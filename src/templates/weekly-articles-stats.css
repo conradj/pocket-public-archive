@@ -16,3 +16,18 @@
   color: #3c3a40;
   font-size: 1rem;
 }
+
+.image-thumbs {
+  height: 500px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+.metadata-image {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+}
