@@ -145,20 +145,6 @@ class WeeklyArticlesTemplate extends React.Component {
   }
 }
 
-WeeklyArticlesTemplate.propTypes = {
-  index: PropTypes.number,
-  title: PropTypes.string,
-  has_image: PropTypes.bool,
-  image: PropTypes.object,
-  excerpt: PropTypes.string,
-  url: PropTypes.string,
-  domainFavicon: PropTypes.string,
-  articleDomain: PropTypes.string,
-  favourite: PropTypes.bool,
-  word_count: PropTypes.number,
-  time_read: PropTypes.number
-};
-
 export default WeeklyArticlesTemplate;
 
 export const pageQuery = graphql`
