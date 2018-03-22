@@ -61,6 +61,13 @@ screenshot:
   # take a screenshot and ftp to site folder for twitter/facebook cards
   box: markxnelson/phantomjs
   steps:
+    - script:
+        code: |
+          echo date
+          echo "date1 $(date)"
+          echo "date2 $(-dmonday +%Y%m%d)"
+          echo "date3 $(-dsunday +%Y%m%d)"
+          echo "date4 $(-dsunday +s)"
     - screenshot:
         url: https://conradj.co.uk/weeklyreads/thisweek?screenshot
         filename: public/screenshots/thisweek.png
