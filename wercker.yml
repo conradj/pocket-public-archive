@@ -63,10 +63,10 @@ screenshot:
   steps:
     - script:
         code: |
-          echo $(date -dlast-sunday +%s)
+          export SCREENSHOT_URL="https://conradj.co.uk/weeklyreads/$(date -dlast-sunday +%s)/stats"
           export SCREENSHOT_FILENAME="public/screenshots/$(date -dlast-sunday +%s).png"
     - screenshot:
-        url: https://conradj.co.uk/weeklyreads/thisweek?screenshot
+        url: $SCREENSHOT_URL
         filename: $SCREENSHOT_FILENAME
         create_file_in_artifacts: false
         viewport_width: 550

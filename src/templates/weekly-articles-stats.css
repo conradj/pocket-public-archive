@@ -1,0 +1,18 @@
+.weekly-articles-stats-container .nav-week-previous,
+.weekly-articles-stats-container .nav-week-next {
+  display: none;
+}
+
+.metadata-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.45rem 1.0875rem 0.45rem;
+}
+
+.metadata {
+  white-space: nowrap;
+  flex: 1;
+  text-align: center;
+  color: #3c3a40;
+  font-size: 1rem;
+}

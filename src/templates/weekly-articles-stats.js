@@ -3,6 +3,8 @@ import Helmet from "react-helmet";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router";
 import Metadata from "./metadata";
+import Navigation from "../components/WeekNav";
+import "./weekly-articles-stats.css";
 
 class WeeklyArticlesStatsTemplate extends React.Component {
   constructor(props) {
@@ -14,10 +16,11 @@ class WeeklyArticlesStatsTemplate extends React.Component {
     let totalArticles = 0;
     let favouriteArticles = 0;
     const isData = this.props.data && this.props.data.allPocketArticle;
-
+    let thisWeek;
     let data;
     if (isData) {
       data = this.props.data.allPocketArticle.edges;
+      thisWeek = parseInt(data[0].node.readWeek);
     }
 
     if (isData) {
@@ -34,12 +37,15 @@ class WeeklyArticlesStatsTemplate extends React.Component {
     const readTime = parseInt(totalWords / 275);
     const readTimeText = readTime < 2 ? "1 minute" : readTime + " minutes";
     return (
-      <Metadata
-        totalArticles={totalArticles}
-        favouriteArticles={favouriteArticles}
-        totalWords={totalWords}
-        readTimeText={readTimeText}
-      />
+      <div className="weekly-articles-stats-container">
+        <Navigation currentWeek={thisWeek} />
+        <Metadata
+          totalArticles={totalArticles}
+          favouriteArticles={favouriteArticles}
+          totalWords={totalWords}
+          readTimeText={readTimeText}
+        />
+      </div>
     );
   }
 }
