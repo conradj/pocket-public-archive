@@ -94,36 +94,8 @@ class WeeklyArticlesTemplate extends React.Component {
     const readTimeText = readTime < 2 ? "1 minute" : readTime + " minutes";
 
     return (
-      <div
-        className={`week-container ${renderForScreenshot ? "screenshot" : ""}`}
-      >
-        <Navigation currentWeek={thisWeek} />
-        <div className="page-main-container">
-          <header className="week-header">
-            <nav className="week-metadata-container">
-              <div className="week-metadata">
-                {totalArticles} articles | {favouriteArticles} favourited |{" "}
-                {new Intl.NumberFormat().format(totalWords)} words |{" "}
-                {readTimeText}
-              </div>
-              <div className="week-metadata-sort">
-                <select
-                  id="sortSelect"
-                  onChange={event =>
-                    this.setState({ sortType: event.target.value })
-                  }
-                  value={this.state.sortType}
-                >
-                  <option value="favourites">Favourites first</option>
-                  <option value="date">By date</option>
-                  <option value="length">By length</option>
-                </select>
-              </div>
-            </nav>
-          </header>
-          <div>{renderForScreenshot ? null : articleList}</div>
-        </div>
-        <Helmet>
+      <div>
+        {/* <Helmet>
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:site" content="@conradj" />
           <meta
@@ -146,7 +118,39 @@ class WeeklyArticlesTemplate extends React.Component {
               totalWords
             )} words`}
           />
-        </Helmet>
+        </Helmet> */}
+        <div
+          className={`week-container ${
+            renderForScreenshot ? "screenshot" : ""
+          }`}
+        >
+          <Navigation currentWeek={thisWeek} />
+          <div className="page-main-container">
+            <header className="week-header">
+              <nav className="week-metadata-container">
+                <div className="week-metadata">
+                  {totalArticles} articles | {favouriteArticles} favourited |{" "}
+                  {new Intl.NumberFormat().format(totalWords)} words |{" "}
+                  {readTimeText}
+                </div>
+                <div className="week-metadata-sort">
+                  <select
+                    id="sortSelect"
+                    onChange={event =>
+                      this.setState({ sortType: event.target.value })
+                    }
+                    value={this.state.sortType}
+                  >
+                    <option value="favourites">Favourites first</option>
+                    <option value="date">By date</option>
+                    <option value="length">By length</option>
+                  </select>
+                </div>
+              </nav>
+            </header>
+            <div>{renderForScreenshot ? null : articleList}</div>
+          </div>
+        </div>
       </div>
     );
   }
