@@ -20,6 +20,10 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     const weeklyArticlesTemplate = path.resolve(
       `src/templates/weekly-articles.js`
     );
+
+    const weeklyArticlesStatsTemplate = path.resolve(
+      `src/templates/weekly-articles-stats.js`
+    );
     // Query for markdown nodes to use in creating pages.
     resolve(
       graphql(
@@ -81,6 +85,15 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           createPage({
             path: startOfWeekTime,
             component: weeklyArticlesTemplate,
+            layout: `index`,
+            context: {
+              currentWeekFilter: startOfWeekTime
+            }
+          });
+
+          createPage({
+            path: `${startOfWeekTime}/stats`,
+            component: weeklyArticlesStatsTemplate,
             layout: `index`,
             context: {
               currentWeekFilter: startOfWeekTime
