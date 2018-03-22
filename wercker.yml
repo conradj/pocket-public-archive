@@ -63,9 +63,8 @@ screenshot:
   steps:
     - script:
         code: |
-          echo $(date --h)
-          echo "date new $(date -v -Sun -v 0H -v 0M -v 0S +%s)"
-          export SCREENSHOT_FILENAME="public/screenshots/$(date -v -Sun -v 0H -v 0M -v 0S +%s).png"
+          echo $(date -dlast-sunday +%s)
+          export SCREENSHOT_FILENAME="public/screenshots/$(date -dlast-sunday +%s).png"
     - screenshot:
         url: https://conradj.co.uk/weeklyreads/thisweek?screenshot
         filename: $SCREENSHOT_FILENAME
