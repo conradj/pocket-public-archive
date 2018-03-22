@@ -1,4 +1,5 @@
 import React from "react";
+import Helmet from "react-helmet";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router";
 import ArticleTemplate from "./article";
@@ -122,6 +123,30 @@ class WeeklyArticlesTemplate extends React.Component {
           </header>
           <div>{renderForScreenshot ? null : articleList}</div>
         </div>
+        <Helmet>
+          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:site" content="@conradj" />
+          <meta
+            name="twitter:title"
+            content={`Week of ${weekDate}: Stories I've read`}
+          />
+          <meta
+            name="twitter:description"
+            content={`${totalArticles} articles, ${new Intl.NumberFormat().format(
+              totalWords
+            )} words`}
+          />
+          <meta
+            name="twitter:image"
+            content={`https://conradj.com/weeklyreads/thisweek.png?${thisWeek}`}
+          />
+          <meta
+            name="twitter:image:alt"
+            content={`Week of ${weekDate}: Stories read by @conradj. ${totalArticles} articles, ${new Intl.NumberFormat().format(
+              totalWords
+            )} words`}
+          />
+        </Helmet>
       </div>
     );
   }
