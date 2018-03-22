@@ -1,5 +1,4 @@
 import React from "react";
-import Helmet from "react-helmet";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router";
 import ArticleTemplate from "./article";
@@ -9,6 +8,7 @@ import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import faCaretLeft from "@fortawesome/fontawesome-free-solid/faCaretLeft";
 import faCaretRight from "@fortawesome/fontawesome-free-solid/faCaretRight";
 import Navigation from "../components/WeekNav";
+import SocialCard from "../components/SocialCard";
 
 const format = require("date-fns/format");
 const startOfWeek = require("date-fns/start_of_week");
@@ -58,7 +58,7 @@ class WeeklyArticlesTemplate extends React.Component {
       });
       thisWeek = parseInt(data[0].node.readWeek);
     }
-    data = renderForScreenshot ? [data[0]] : data;
+
     const nextWeek = thisWeek + 604800;
     const lastWeek = thisWeek - 604800;
     const weekDate = format(new Date(thisWeek * 1000), "Do MMMM YYYY");
@@ -91,35 +91,21 @@ class WeeklyArticlesTemplate extends React.Component {
 
     const readTime = parseInt(totalWords / 275);
     const readTimeText = readTime < 2 ? "1 minute" : readTime + " minutes";
-
+    data = renderForScreenshot ? [data[0]] : data;
     return (
       <div>
-        <Helmet>
-          <meta name="twitter:card" content="summary" />
-          <meta name="twitter:site" content="@conradj" />
-          <meta
-            name="twitter:title"
-            content={`Week of ${weekDate}: Stories I've read`}
-          />
-          <meta
-            name="twitter:description"
-            content={`${totalArticles} articles, ${new Intl.NumberFormat().format(
-              totalWords
-            )} words`}
-          />
-          <meta
-            name="twitter:image"
-            content={`https://conradj.co.uk/weeklyreads/${thisWeek}.png?${Date.parse(
-              new Date()
-            )}`}
-          />
-          <meta
-            name="twitter:image:alt"
-            content={`Week of ${weekDate}: Stories read by @conradj. ${totalArticles} articles, ${new Intl.NumberFormat().format(
-              totalWords
-            )} words`}
-          />
-        </Helmet>
+        <SocialCard
+          title={`Week of ${weekDate}: Stories I've read`}
+          description={`${totalArticles} articles, ${new Intl.NumberFormat().format(
+            totalWords
+          )} words`}
+          imageUrl={`https://conradj.co.uk/weeklyreads/${thisWeek}.png?${Date.parse(
+            new Date()
+          )}`}
+          imageAlt={`Week of ${weekDate}: Stories read by @conradj. ${totalArticles} articles, ${new Intl.NumberFormat().format(
+            totalWords
+          )} words`}
+        />
         <div
           className={`week-container ${
             renderForScreenshot ? "screenshot" : ""
@@ -149,7 +135,7 @@ class WeeklyArticlesTemplate extends React.Component {
                 </div>
               </nav>
             </header>
-            <div>{renderForScreenshot ? null : articleList}</div>
+            <div>{articleList}</div>
           </div>
         </div>
       </div>
