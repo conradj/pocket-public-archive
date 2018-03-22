@@ -95,7 +95,7 @@ class WeeklyArticlesTemplate extends React.Component {
 
     return (
       <div>
-        {/* <Helmet>
+        <Helmet>
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:site" content="@conradj" />
           <meta
@@ -110,7 +110,9 @@ class WeeklyArticlesTemplate extends React.Component {
           />
           <meta
             name="twitter:image"
-            content={`https://conradj.com/weeklyreads/thisweek.png?${thisWeek}`}
+            content={`https://conradj.com/weeklyreads/${thisWeek}.png?${Date.parse(
+              new Date()
+            )}`}
           />
           <meta
             name="twitter:image:alt"
@@ -118,7 +120,7 @@ class WeeklyArticlesTemplate extends React.Component {
               totalWords
             )} words`}
           />
-        </Helmet> */}
+        </Helmet>
         <div
           className={`week-container ${
             renderForScreenshot ? "screenshot" : ""
