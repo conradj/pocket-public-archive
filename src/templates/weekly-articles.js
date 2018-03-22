@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router";
 import ArticleTemplate from "./article";
-import "./weekly-articles.css";
+import Metadata from "./metadata";
 import FlipMove from "react-flip-move";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import faCaretLeft from "@fortawesome/fontawesome-free-solid/faCaretLeft";
@@ -12,6 +12,8 @@ import SocialCard from "../components/SocialCard";
 
 const format = require("date-fns/format");
 const startOfWeek = require("date-fns/start_of_week");
+
+import "./weekly-articles.css";
 
 class WeeklyArticlesTemplate extends React.Component {
   constructor(props) {
@@ -114,12 +116,12 @@ class WeeklyArticlesTemplate extends React.Component {
           <Navigation currentWeek={thisWeek} />
           <div className="page-main-container">
             <header className="week-header">
-              <nav className="week-metadata-container">
-                <div className="week-metadata">
-                  {totalArticles} articles | {favouriteArticles} favourited |{" "}
-                  {new Intl.NumberFormat().format(totalWords)} words |{" "}
-                  {readTimeText}
-                </div>
+              <Metadata
+                totalArticles={totalArticles}
+                favouriteArticles={favouriteArticles}
+                totalWords={totalWords}
+                readTimeText={readTimeText}
+              >
                 <div className="week-metadata-sort">
                   <select
                     id="sortSelect"
@@ -133,7 +135,7 @@ class WeeklyArticlesTemplate extends React.Component {
                     <option value="length">By length</option>
                   </select>
                 </div>
-              </nav>
+              </Metadata>
             </header>
             <div>{articleList}</div>
           </div>

@@ -42,12 +42,6 @@ img {
   color: #3c3a40;
 }
 
-.week-metadata-container {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0.45rem 1.0875rem 0.45rem;
-}
-
 .week-metadata-sort {
   color: #d81159;
 }
@@ -72,7 +66,7 @@ img {
   color: #d81159;
 }
 
-.week-metadata {
+.week-header .metadata {
   color: #bfbdc1;
   font-size: 0.8rem;
   white-space: nowrap;
@@ -80,22 +74,12 @@ img {
   flex: 1;
 }
 
-.week-container.screenshot .week-metadata {
-  text-align: center;
-  color: #3c3a40;
-  font-size: 1rem;
-}
-
-.week-container.screenshot .week-metadata-sort {
-  display: none;
-}
-
 @media (max-width: 460px) {
   .week-header {
     border-bottom: 1px solid #ccc;
   }
 
-  .week-metadata-container {
+  .week-header .metadata-container {
     background-color: #3c3a40;
     color: #ccc;
   }
