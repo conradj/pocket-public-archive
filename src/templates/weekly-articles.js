@@ -28,7 +28,6 @@ class WeeklyArticlesTemplate extends React.Component {
   render() {
     const { renderForScreenshot } = this.state;
     console.log("renderForScreenshot", renderForScreenshot);
-    renderForScreenshot;
     let totalWords = 0;
     let totalArticles = 0;
     let favouriteArticles = 0;
@@ -59,7 +58,7 @@ class WeeklyArticlesTemplate extends React.Component {
       });
       thisWeek = parseInt(data[0].node.readWeek);
     }
-
+    data = renderForScreenshot ? [data[0]] : data;
     const nextWeek = thisWeek + 604800;
     const lastWeek = thisWeek - 604800;
     const weekDate = format(new Date(thisWeek * 1000), "Do MMMM YYYY");
