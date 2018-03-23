@@ -97,6 +97,7 @@ class WeeklyArticlesTemplate extends React.Component {
     return (
       <div>
         <SocialCard
+          url={`https://conradj.co.uk/weeklyarticles/${thisWeek}`}
           title={`Week of ${weekDate}: Stories I've read`}
           description={`${totalArticles} articles, ${new Intl.NumberFormat().format(
             totalWords
