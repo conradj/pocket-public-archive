@@ -63,13 +63,13 @@ screenshot:
   steps:
     - script:
         code: |
-          export SCREENSHOT_URL="https://conradj.co.uk/weeklyreads/$(date -dlast-sunday +%s)/stats"
+          export SCREENSHOT_URL="https://conradj.co.uk/weeklyreads/$(date -dlast-sunday +%s)/summary"
           export SCREENSHOT_FILENAME="public/screenshots/$(date -dlast-sunday +%s).png"
     - screenshot:
         url: $SCREENSHOT_URL
         filename: $SCREENSHOT_FILENAME
         create_file_in_artifacts: false
-        viewport_width: 550
+        viewport_width: 1000
         viewport_height: 500
           
 deploy-screenshot:

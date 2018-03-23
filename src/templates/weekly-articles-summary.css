@@ -1,0 +1,55 @@
+.weekly-articles-summary-container {
+  position: relative;
+}
+
+.weekly-articles-summary-container .image-overlay {
+  background: linear-gradient(
+    190deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.8) 90%
+  );
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.weekly-summary {
+  position: absolute;
+  bottom: 0;
+  color: #ccc;
+  padding: 2rem;
+}
+
+.weekly-summary .metadata-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.weekly-summary .metadata {
+  white-space: nowrap;
+  flex: 1;
+  text-align: left;
+  color: white;
+  font-size: 1rem;
+}
+
+.image-thumbs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+  height: 50vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.metadata-image {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100px;
+  height: 100px;
+  float: left;
+  max-width: 100%;
+  max-height: 100%;
+}
