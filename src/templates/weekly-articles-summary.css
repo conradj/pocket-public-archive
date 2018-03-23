@@ -38,7 +38,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
-  height: 50vh;
+  height: 75vh;
   width: 100vw;
   overflow: hidden;
 }
