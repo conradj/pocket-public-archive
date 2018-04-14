@@ -27,7 +27,7 @@ Metadata.propTypes = {
   totalArticles: PropTypes.number,
   favouriteArticles: PropTypes.number,
   totalWords: PropTypes.number,
-  readTimeText: PropTypes.number,
+  readTimeText: PropTypes.string,
   children: PropTypes.object
 };
 

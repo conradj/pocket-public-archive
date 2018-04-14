@@ -9,18 +9,16 @@ import faCaretLeft from "@fortawesome/fontawesome-free-solid/faCaretLeft";
 import faCaretRight from "@fortawesome/fontawesome-free-solid/faCaretRight";
 import Navigation from "../components/WeekNav";
 import SocialCard from "../components/SocialCard";
-
-const format = require("date-fns/format");
-const startOfWeek = require("date-fns/start_of_week");
+import MainCTA from "../components/MainCTA";
+import format from "date-fns/format";
+import startOfWeek from "date-fns/start_of_week";
 
 import "./weekly-articles.css";
 
 class WeeklyArticlesTemplate extends React.Component {
   constructor(props) {
     super(props);
-    console.log("ctor props", this.props.location.search);
     const renderForScreenshot = this.props.location.search === "?screenshot";
-    console.log("renderForScreenshot", renderForScreenshot);
     this.state = {
       sortType: "favourites",
       renderForScreenshot: renderForScreenshot
@@ -29,11 +27,13 @@ class WeeklyArticlesTemplate extends React.Component {
 
   render() {
     const { renderForScreenshot } = this.state;
-    console.log("renderForScreenshot", renderForScreenshot);
     let totalWords = 0;
     let totalArticles = 0;
     let favouriteArticles = 0;
-    let thisWeek = Date.parse(startOfWeek(new Date())) / 1000;
+    let thisWeek = parseInt(
+      Date.parse(format(startOfWeek(new Date()), "YYYY-MM-DDT00:00:00.000")) /
+        1000
+    );
     const isData = this.props.data && this.props.data.allPocketArticle;
     const sortType = this.state.sortType;
     let data;
@@ -109,6 +109,7 @@ class WeeklyArticlesTemplate extends React.Component {
             totalWords
           )} words`}
         />
+        <MainCTA />
         <div
           className={`week-container ${
             renderForScreenshot ? "screenshot" : ""
