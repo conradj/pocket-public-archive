@@ -1,0 +1,37 @@
+.weekly-articles-stats-container .nav-week-previous,
+.weekly-articles-stats-container .nav-week-next {
+  display: none;
+}
+
+.metadata-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.45rem 1.0875rem 0.45rem;
+}
+
+.metadata {
+  white-space: nowrap;
+  flex: 1;
+  text-align: center;
+  color: #3c3a40;
+  font-size: 1rem;
+}
+
+.image-thumbs {
+  /* display: grid; */
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+  height: 500px;
+  overflow: hidden;
+}
+
+.metadata-image {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100px;
+  height: 100px;
+  float: left;
+  max-width: 100%;
+  max-height: 100%;
+}
