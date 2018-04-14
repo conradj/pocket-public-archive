@@ -16,7 +16,7 @@
     "gatsby-plugin-google-fonts": "0.0.3",
     "gatsby-plugin-react-helmet": "^2.0.3",
     "gatsby-plugin-typography": "^1.7.14",
-    "gatsby-source-pocket": "^1.0.0",
+    "gatsby-source-pocket": "^1.0.2",
     "node-getpocket": "^1.0.0",
     "react-flip-move": "^3.0.1",
     "react-helmet": "^5.2.0",

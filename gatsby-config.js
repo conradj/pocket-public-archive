@@ -13,7 +13,16 @@ module.exports = {
         accessToken: process.env.POCKET_ACCESS_TOKEN,
         weeksOfHistory: process.env.WEEKS_OF_HISTORY,
         apiMaxRecordsToReturn: process.env.API_MAX_RECORDS,
-        getCurrentWeekOnly: process.env.GET_CURRENT_WEEKS_ARTICLES_ONLY
+        getCurrentWeekOnly: process.env.GET_CURRENT_WEEKS_ARTICLES_ONLY,
+        stateFilterString: "archive",
+        tagFilter: false,
+        tagFilterString: "_untagged_",
+        favouriteFilter: false,
+        favouriteFilterValue: 1,
+        searchFilter: false,
+        searchFilterString: "t",
+        domainFilter: false,
+        domainFilterString: "stratechery.com"
       }
     },
     {
