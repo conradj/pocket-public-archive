@@ -9,7 +9,6 @@ import faCaretLeft from "@fortawesome/fontawesome-free-solid/faCaretLeft";
 import faCaretRight from "@fortawesome/fontawesome-free-solid/faCaretRight";
 import Navigation from "../components/WeekNav";
 import SocialCard from "../components/SocialCard";
-import MainCTA from "../components/MainCTA";
 import format from "date-fns/format";
 import startOfWeek from "date-fns/start_of_week";
 
@@ -109,7 +108,6 @@ class WeeklyArticlesTemplate extends React.Component {
             totalWords
           )} words`}
         />
-        <MainCTA />
         <div
           className={`week-container ${
             renderForScreenshot ? "screenshot" : ""

@@ -6,6 +6,7 @@ import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import "./index.css";
+import MainCTA from "../components/MainCTA";
 
 const TemplateWrapper = ({ children }) => (
   <div>
@@ -22,6 +23,7 @@ const TemplateWrapper = ({ children }) => (
       />
       <style>{fontawesome.dom.css()}</style>
     </Helmet>
+    <MainCTA />
     <Header />
     <div>{children()}</div>
     <Footer />
