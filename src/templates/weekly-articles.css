@@ -84,7 +84,8 @@ img {
     color: #ccc;
   }
 
-  .week-metadata-sort {
-    display: none;
+  .week-metadata-sort select {
+    width: 10px;
+    border-bottom: 0;
   }
 }
