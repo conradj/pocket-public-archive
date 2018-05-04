@@ -12,7 +12,6 @@ class WeeklyArticlesSummaryTemplate extends React.Component {
 
   render() {
     let totalWords = 0;
-    let totalArticles = 0;
     let favouriteArticles = 0;
     const isData = this.props.data && this.props.data.allPocketArticle;
     let thisWeek;
@@ -23,21 +22,24 @@ class WeeklyArticlesSummaryTemplate extends React.Component {
     }
 
     const currentWeekDate = format(new Date(thisWeek * 1000), "Do MMMM YYYY");
-
+    const totalArticles = data ? data.length : 0;
+    const thumbSize = Math.sqrt(1000 * 500 / totalArticles);
     const imageThumbs = isData
       ? data.map((edge, index) => {
           let article = edge.node;
           if (article.title && article.url && article.word_count > 0) {
             totalWords += article.word_count;
-            totalArticles++;
             favouriteArticles += article.favourite ? 1 : 0;
           }
 
           if ((article.has_image, article.image)) {
             return (
               <div
+                key={index}
                 className="metadata-image"
                 style={{
+                  width: `${thumbSize}px`,
+                  height: `${thumbSize}px`,
                   backgroundImage: `url(${article.image.src.replace(
                     /^http:\/\//i,
                     "https://"
@@ -51,9 +53,16 @@ class WeeklyArticlesSummaryTemplate extends React.Component {
 
     const readTime = parseInt(totalWords / 275);
     const readTimeText = readTime < 2 ? "1 minute" : readTime + " minutes";
+
     return (
       <div className="weekly-articles-summary-container">
-        <div className="image-thumbs">
+        <div
+          className="image-thumbs"
+          style={{
+            gridTemplateColumns: `repeat(auto-fit,minmax(${thumbSize}px,1fr))`,
+            gridTemplateRows: `repeat(auto-fit,minmax(${thumbSize}px,1fr))`
+          }}
+        >
           {imageThumbs}
           <div className="image-overlay" />
         </div>
