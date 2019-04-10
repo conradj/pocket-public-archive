@@ -44,6 +44,7 @@ img {
 
 .week-metadata-sort {
   color: #d81159;
+  display: none;
 }
 .week-metadata-sort select {
   font-family: "Merriweather,serif";
