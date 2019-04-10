@@ -4,7 +4,6 @@
   align-items: center;
   justify-content: center;
   height: 125px;
-  animation: 2s ease 0s normal forwards 1 expand;
 }
 
 .cta-container {
@@ -26,7 +25,6 @@
   width: 170px;
   margin: 0 auto;
   display: inline-block;
-  animation: 3s ease 0s normal forwards 1 fadein;
 }
 
 .cta-button small {
@@ -35,28 +33,4 @@
 
 .cta-button:hover {
   background-color: #ad0c47;
-}
-
-@keyframes fadein {
-  0% {
-    opacity: 0;
-  }
-  66% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes expand {
-  0% {
-    max-height: 0;
-  }
-  66% {
-    max-height: 0;
-  }
-  100% {
-    max-height: 90px;
-  }
 }
