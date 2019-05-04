@@ -23,7 +23,7 @@ class WeeklyArticlesSummaryTemplate extends React.Component {
 
     const currentWeekDate = format(new Date(thisWeek * 1000), "Do MMMM YYYY");
     const totalArticles = data ? data.length : 0;
-    const thumbSize = Math.sqrt(1000 * 500 / totalArticles);
+    const thumbSize = Math.sqrt(1000 * 395 / totalArticles);
     const imageThumbs = isData
       ? data.map((edge, index) => {
           let article = edge.node;

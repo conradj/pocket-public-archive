@@ -41,6 +41,7 @@
   height: 75vh;
   width: 100vw;
   overflow: hidden;
+  gap: 10px;
 }
 
 .metadata-image {
