@@ -107,7 +107,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           createPage({
             path: `${startOfWeekTime}/summary`,
             component: weeklyArticlesSummaryTemplate,
-            layout: `index`,
+            layout: `indexNoCTA`,
             context: {
               currentWeekFilter: startOfWeekTime
             }
