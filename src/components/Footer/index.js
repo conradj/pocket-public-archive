@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "gatsby-link";
-import FontAwesomeIcon from "@fortawesome/react-fontawesome";
-import faTwitter from "@fortawesome/fontawesome-free-brands/faTwitter";
-import faGithub from "@fortawesome/fontawesome-free-brands/faGithub";
-import faExternalLink from "@fortawesome/fontawesome-free-solid/faExternalLinkSquareAlt";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTwitter } from "@fortawesome/fontawesome-free-brands/faTwitter";
+import { faGithub } from "@fortawesome/fontawesome-free-brands/faGithub";
+import { faExternalLink } from "@fortawesome/fontawesome-free-solid/faExternalLinkSquareAlt";
 
 const Footer = () => (
   <nav

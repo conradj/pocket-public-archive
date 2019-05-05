@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "gatsby-link";
-import FontAwesomeIcon from "@fortawesome/react-fontawesome";
-import faTwitter from "@fortawesome/fontawesome-free-brands/faTwitter";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTwitter } from "@fortawesome/fontawesome-free-brands/faTwitter";
 import "./mainCTA.css";
 const MainCTA = () => (
   <div className="cta-background">
