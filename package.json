@@ -4,23 +4,22 @@
   "version": "1.0.0",
   "author": "Conrad Jackson",
   "dependencies": {
-    "@fortawesome/fontawesome": "^1.1.3",
-    "@fortawesome/fontawesome-free-brands": "^5.0.6",
-    "@fortawesome/fontawesome-free-solid": "^5.0.6",
-    "@fortawesome/react-fontawesome": "0.0.17",
-    "date-fns": "^1.29.0",
-    "dotenv-safe": "^4.0.4",
-    "gatsby": "^1.9.158",
-    "gatsby-link": "^1.6.34",
-    "gatsby-plugin-google-analytics": "^1.0.19",
-    "gatsby-plugin-google-fonts": "0.0.3",
-    "gatsby-plugin-react-helmet": "^2.0.3",
-    "gatsby-plugin-typography": "^1.7.14",
-    "gatsby-source-pocket": "^1.0.2",
+    "@fortawesome/fontawesome": "^1.1.8",
+    "@fortawesome/fontawesome-free-brands": "^5.0.13",
+    "@fortawesome/fontawesome-free-solid": "^5.0.13",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "date-fns": "^1.30.1",
+    "dotenv-safe": "^6.1.0",
+    "gatsby": "^2.4.2",
+    "gatsby-link": "^2.1.1",
+    "gatsby-plugin-google-analytics": "^2.0.19",
+    "gatsby-plugin-google-fonts": "0.0.4",
+    "gatsby-plugin-react-helmet": "^3.0.12",
+    "gatsby-plugin-typography": "^2.2.13",
+    "gatsby-source-pocket": "file:../../gatsby-source-pocket-2.3.0.tgz",
     "node-getpocket": "^1.0.0",
-    "react-flip-move": "^3.0.1",
-    "react-helmet": "^5.2.0",
-    "rss-parser": "^2.10.1",
+    "react-helmet": "^5.2.1",
+    "rss-parser": "^3.7.0",
     "stdio": "^0.2.7"
   },
   "keywords": [
@@ -36,7 +35,7 @@
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "devDependencies": {
-    "gh-pages": "^1.1.0",
-    "prettier": "^1.10.2"
+    "gh-pages": "^2.0.1",
+    "prettier": "^1.17.0"
   }
 }
