@@ -4,12 +4,9 @@ import Link from "gatsby-link";
 import format from "date-fns/format";
 import startOfWeek from "date-fns/start_of_week";
 
-import FontAwesomeIcon from "@fortawesome/react-fontawesome";
-import faCaretLeft from "@fortawesome/fontawesome-free-solid/faCaretSquareLeft";
-import faCaretRight from "@fortawesome/fontawesome-free-solid/faCaretSquareRight";
-import faHome from "@fortawesome/fontawesome-free-solid/faHome";
-import faHelp from "@fortawesome/fontawesome-free-solid/faQuestionCircle";
-import faExternalLink from "@fortawesome/fontawesome-free-solid/faExternalLinkSquareAlt";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCaretLeft } from "@fortawesome/fontawesome-free-solid/faCaretSquareLeft";
+import { faCaretRight } from "@fortawesome/fontawesome-free-solid/faCaretSquareRight";
 
 import "./navigation.css";
 

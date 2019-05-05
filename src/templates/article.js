@@ -3,20 +3,22 @@ import PropTypes from "prop-types";
 import "./article.css";
 import format from "date-fns/format";
 // import PocketButton from "../components/PocketButton";
-import FontAwesomeIcon from "@fortawesome/react-fontawesome";
-import faExternalLink from "@fortawesome/fontawesome-free-solid/faExternalLinkSquareAlt";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faExternalLink } from "@fortawesome/fontawesome-free-solid/faExternalLinkSquareAlt";
 
 class ArticleTemplate extends React.Component {
   saveGAEvent(event) {
     if (process.env.NODE_ENV === "production" && typeof ga === "function") {
-      ga("send", {
-        hitType: "event",
-        eventCategory: event.target.hostname,
-        eventAction: "read",
-        eventLabel: event.target.pathname
-      });
+      console.log("waaaah ga!");
+      // ga("send", {
+      //   hitType: "event",
+      //   eventCategory: event.target.hostname,
+      //   eventAction: "read",
+      //   eventLabel: event.target.pathname
+      // });
     }
   }
+
   render() {
     const {
       index,

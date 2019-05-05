@@ -1,4 +1,5 @@
 import React from "react";
+import { graphql } from "gatsby";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router";
 import "./weekly-articles-summary.css";
