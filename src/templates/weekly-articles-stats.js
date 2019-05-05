@@ -2,7 +2,6 @@ import React from "react";
 import { graphql } from "gatsby";
 import Helmet from "react-helmet";
 import PropTypes from "prop-types";
-import { withRouter } from "react-router";
 import Metadata from "./metadata";
 import Navigation from "../components/WeekNav";
 import "./weekly-articles-stats.css";
