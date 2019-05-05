@@ -8,7 +8,7 @@ import Footer from "./Footer";
 import "./layout.css";
 import MainCTA from "./MainCTA";
 
-const TemplateWrapper = ({ children }) => (
+const TemplateWrapper = ({ children, showCTA = false }) => (
   <div>
     <Helmet
       title="Articles I've read"
@@ -23,7 +23,7 @@ const TemplateWrapper = ({ children }) => (
       />
       <style>{fontawesome.dom.css()}</style> */}
     </Helmet>
-    <MainCTA />
+    {showCTA && <MainCTA />}
     <Header />
     <div>{children}</div>
     <Footer />

@@ -72,7 +72,7 @@ class WeeklyArticlesTemplate extends React.Component {
     const readTimeText = readTime < 2 ? "1 minute" : readTime + " minutes";
     data = renderForScreenshot ? [data[0]] : data;
     return (
-      <Layout>
+      <Layout showCTA={true}>
         <div>
           <SocialCard
             url={`https://conradj.co.uk/weeklyarticles/${thisWeek}`}

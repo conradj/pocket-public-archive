@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import PropTypes from "prop-types";
+import Layout from "../components/layout";
 import "./weekly-articles-summary.css";
 import Metadata from "./metadata";
 import format from "date-fns/format";
@@ -55,32 +55,32 @@ class WeeklyArticlesSummaryTemplate extends React.Component {
     const readTimeText = readTime < 2 ? "1 minute" : readTime + " minutes";
 
     return (
-      <div className="weekly-articles-summary-container">
-        <div
-          className="image-thumbs"
-          style={{
-            gridTemplateColumns: `repeat(auto-fit,minmax(${thumbSize}px,1fr))`,
-            gridTemplateRows: `repeat(auto-fit,minmax(${thumbSize}px,1fr))`
-          }}
-        >
-          {imageThumbs}
-          <div className="image-overlay" />
+      <Layout>
+        <div className="weekly-articles-summary-container">
+          <div
+            className="image-thumbs"
+            style={{
+              gridTemplateColumns: `repeat(auto-fit,minmax(${thumbSize}px,1fr))`,
+              gridTemplateRows: `repeat(auto-fit,minmax(${thumbSize}px,1fr))`
+            }}
+          >
+            {imageThumbs}
+            <div className="image-overlay" />
+          </div>
+          <div className="weekly-summary">
+            <h1>Stories for {currentWeekDate}</h1>
+            <Metadata
+              totalArticles={totalArticles}
+              favouriteArticles={favouriteArticles}
+              totalWords={totalWords}
+              readTimeText={readTimeText}
+            />
+          </div>
         </div>
-        <div className="weekly-summary">
-          <h1>Stories for {currentWeekDate}</h1>
-          <Metadata
-            totalArticles={totalArticles}
-            favouriteArticles={favouriteArticles}
-            totalWords={totalWords}
-            readTimeText={readTimeText}
-          />
-        </div>
-      </div>
+      </Layout>
     );
   }
 }
-
-WeeklyArticlesSummaryTemplate.propTypes = {};
 
 export default WeeklyArticlesSummaryTemplate;
 

@@ -89,7 +89,6 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           createPage({
             path: startOfWeekTime + "",
             component: weeklyArticlesTemplate,
-            //layout: `index`,
             context: {
               currentWeekFilter: startOfWeekTime
             }
@@ -97,7 +96,6 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           createPage({
             path: `${startOfWeekTime}/stats`,
             component: weeklyArticlesStatsTemplate,
-            //layout: `index`,
             context: {
               currentWeekFilter: startOfWeekTime
             }
@@ -106,7 +104,6 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           createPage({
             path: `${startOfWeekTime}/summary`,
             component: weeklyArticlesSummaryTemplate,
-            //layout: `indexNoCTA`,
             context: {
               currentWeekFilter: startOfWeekTime
             }
@@ -118,7 +115,6 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         createPage({
           path: "thisweek",
           component: weeklyArticlesTemplate,
-          //layout: `index`,
           context: {
             currentWeekFilter: startOfWeekTime - 604800
           }
@@ -127,7 +123,6 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         createPage({
           path: "lastweek",
           component: weeklyArticlesTemplate,
-          //layout: `index`,
           context: {
             currentWeekFilter: startOfWeekTime - 604800 - 604800
           }
