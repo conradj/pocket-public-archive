@@ -40,6 +40,18 @@ module.exports = {
       options: {
         pathToConfigModule: `src/utils/typography`
       }
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Cinzel Decorative`,
+          `Kadwa`,
+          `Merriweather\:700`,
+          `Open Sans`
+          // `source sans pro\:300,400,400i,700` // you can also specify font weights and styles
+        ]
+      }
     }
   ],
   pathPrefix: `/weeklyreads`
