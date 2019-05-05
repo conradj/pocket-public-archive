@@ -1,12 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { withRouter } from "react-router";
+import { graphql } from "gatsby";
 import ArticleTemplate from "./article";
 import Metadata from "./metadata";
-import FlipMove from "react-flip-move";
-import FontAwesomeIcon from "@fortawesome/react-fontawesome";
-import faCaretLeft from "@fortawesome/fontawesome-free-solid/faCaretLeft";
-import faCaretRight from "@fortawesome/fontawesome-free-solid/faCaretRight";
 import Navigation from "../components/WeekNav";
 import SocialCard from "../components/SocialCard";
 import format from "date-fns/format";
@@ -37,25 +32,15 @@ class WeeklyArticlesTemplate extends React.Component {
     const sortType = this.state.sortType;
     let data;
     if (isData) {
-      data = this.props.data.allPocketArticle.edges.sort(function(a, b) {
-        switch (sortType) {
-          case "length":
-            return a.node.word_count - b.node.word_count;
-            break;
-          case "date":
-            return a.node.time_read - b.node.time_read;
-            break;
-          case "favourites":
-          default:
-            if (b.node.favourite < a.node.favourite) {
-              return -1;
-            }
-
-            if (b.node.favourite > a.node.favourite) {
-              return 1;
-            }
-            return b.node.word_count - a.node.word_count;
+      data = this.props.data.allPocketArticle.edges.sort((a, b) => {
+        if (b.node.favourite < a.node.favourite) {
+          return -1;
         }
+
+        if (b.node.favourite > a.node.favourite) {
+          return 1;
+        }
+        return b.node.word_count - a.node.word_count;
       });
       thisWeek = parseInt(data[0].node.readWeek);
     }
@@ -65,27 +50,19 @@ class WeeklyArticlesTemplate extends React.Component {
     const weekDate = format(new Date(thisWeek * 1000), "Do MMMM YYYY");
 
     const articleList = isData ? (
-      <FlipMove
-        staggerDurationBy={100}
-        duration={500}
-        enterAnimation="fade"
-        leaveAnimation="fade"
-        className="wrapper"
-      >
-        {data.map((edge, index) => {
-          let article = edge.node;
-          if (article.title && article.url && article.word_count > 0) {
-            totalWords += article.word_count;
-            totalArticles++;
-            favouriteArticles += article.favourite ? 1 : 0;
-            return (
-              <ArticleTemplate key={article.title} {...article} index={index} />
-            );
-          } else {
-            console.warn("Article not loaded", article);
-          }
-        })}
-      </FlipMove>
+      data.map((edge, index) => {
+        let article = edge.node;
+        if (article.title && article.url && article.word_count > 0) {
+          totalWords += article.word_count;
+          totalArticles++;
+          favouriteArticles += article.favourite ? 1 : 0;
+          return (
+            <ArticleTemplate key={article.title} {...article} index={index} />
+          );
+        } else {
+          console.warn("Article not loaded", article);
+        }
+      })
     ) : (
       <div>No Articles read yet this week</div>
     );
