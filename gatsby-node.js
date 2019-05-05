@@ -87,18 +87,17 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         // get all weeks up till now
         while (startOfWeekTime < parseInt(format(new Date(), "X"))) {
           createPage({
-            path: startOfWeekTime,
+            path: startOfWeekTime + "",
             component: weeklyArticlesTemplate,
-            layout: `index`,
+            //layout: `index`,
             context: {
               currentWeekFilter: startOfWeekTime
             }
           });
-
           createPage({
             path: `${startOfWeekTime}/stats`,
             component: weeklyArticlesStatsTemplate,
-            layout: `index`,
+            //layout: `index`,
             context: {
               currentWeekFilter: startOfWeekTime
             }
@@ -107,7 +106,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           createPage({
             path: `${startOfWeekTime}/summary`,
             component: weeklyArticlesSummaryTemplate,
-            layout: `indexNoCTA`,
+            //layout: `indexNoCTA`,
             context: {
               currentWeekFilter: startOfWeekTime
             }
@@ -119,7 +118,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         createPage({
           path: "thisweek",
           component: weeklyArticlesTemplate,
-          layout: `index`,
+          //layout: `index`,
           context: {
             currentWeekFilter: startOfWeekTime - 604800
           }
@@ -128,7 +127,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         createPage({
           path: "lastweek",
           component: weeklyArticlesTemplate,
-          layout: `index`,
+          //layout: `index`,
           context: {
             currentWeekFilter: startOfWeekTime - 604800 - 604800
           }
