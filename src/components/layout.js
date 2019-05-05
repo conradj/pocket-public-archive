@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
-import fontawesome from "@fortawesome/fontawesome";
-import FontAwesomeIcon from "@fortawesome/react-fontawesome";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import "./index.css";
-import MainCTA from "../components/MainCTA";
+import { fontawesome } from "@fortawesome/fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Header from "./Header";
+import Footer from "./Footer";
+import "./layout.css";
+import MainCTA from "./MainCTA";
 
 const TemplateWrapper = ({ children }) => (
   <div>
@@ -17,21 +17,17 @@ const TemplateWrapper = ({ children }) => (
         { name: "keywords", content: "sample, something" }
       ]}
     >
-      <script
+      {/* <script
         defer
         src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"
       />
-      <style>{fontawesome.dom.css()}</style>
+      <style>{fontawesome.dom.css()}</style> */}
     </Helmet>
     <MainCTA />
     <Header />
-    <div>{children()}</div>
+    <div>{children}</div>
     <Footer />
   </div>
 );
-
-TemplateWrapper.propTypes = {
-  children: PropTypes.func
-};
 
 export default TemplateWrapper;

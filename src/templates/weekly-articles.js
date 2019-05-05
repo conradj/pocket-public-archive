@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
+import Layout from "../components/layout";
 import ArticleTemplate from "./article";
 import Metadata from "./metadata";
 import Navigation from "../components/WeekNav";
@@ -71,53 +72,55 @@ class WeeklyArticlesTemplate extends React.Component {
     const readTimeText = readTime < 2 ? "1 minute" : readTime + " minutes";
     data = renderForScreenshot ? [data[0]] : data;
     return (
-      <div>
-        <SocialCard
-          url={`https://conradj.co.uk/weeklyarticles/${thisWeek}`}
-          title={`Week of ${weekDate}: Stories I've read`}
-          description={`${totalArticles} articles, ${new Intl.NumberFormat().format(
-            totalWords
-          )} words`}
-          imageUrl={`https://conradj.co.uk/weeklyreads/${thisWeek}.png?${Date.parse(
-            new Date()
-          )}`}
-          imageAlt={`Week of ${weekDate}: Stories read by @conradj. ${totalArticles} articles, ${new Intl.NumberFormat().format(
-            totalWords
-          )} words`}
-        />
-        <div
-          className={`week-container ${
-            renderForScreenshot ? "screenshot" : ""
-          }`}
-        >
-          <Navigation currentWeek={thisWeek} />
-          <div className="page-main-container">
-            <header className="week-header">
-              <Metadata
-                totalArticles={totalArticles}
-                favouriteArticles={favouriteArticles}
-                totalWords={totalWords}
-                readTimeText={readTimeText}
-              >
-                <div className="week-metadata-sort">
-                  <select
-                    id="sortSelect"
-                    onChange={event =>
-                      this.setState({ sortType: event.target.value })
-                    }
-                    value={this.state.sortType}
-                  >
-                    <option value="favourites">Favourites first</option>
-                    <option value="date">By date</option>
-                    <option value="length">By length</option>
-                  </select>
-                </div>
-              </Metadata>
-            </header>
-            <div>{articleList}</div>
+      <Layout>
+        <div>
+          <SocialCard
+            url={`https://conradj.co.uk/weeklyarticles/${thisWeek}`}
+            title={`Week of ${weekDate}: Stories I've read`}
+            description={`${totalArticles} articles, ${new Intl.NumberFormat().format(
+              totalWords
+            )} words`}
+            imageUrl={`https://conradj.co.uk/weeklyreads/${thisWeek}.png?${Date.parse(
+              new Date()
+            )}`}
+            imageAlt={`Week of ${weekDate}: Stories read by @conradj. ${totalArticles} articles, ${new Intl.NumberFormat().format(
+              totalWords
+            )} words`}
+          />
+          <div
+            className={`week-container ${
+              renderForScreenshot ? "screenshot" : ""
+            }`}
+          >
+            <Navigation currentWeek={thisWeek} />
+            <div className="page-main-container">
+              <header className="week-header">
+                <Metadata
+                  totalArticles={totalArticles}
+                  favouriteArticles={favouriteArticles}
+                  totalWords={totalWords}
+                  readTimeText={readTimeText}
+                >
+                  <div className="week-metadata-sort">
+                    <select
+                      id="sortSelect"
+                      onChange={event =>
+                        this.setState({ sortType: event.target.value })
+                      }
+                      value={this.state.sortType}
+                    >
+                      <option value="favourites">Favourites first</option>
+                      <option value="date">By date</option>
+                      <option value="length">By length</option>
+                    </select>
+                  </div>
+                </Metadata>
+              </header>
+              <div>{articleList}</div>
+            </div>
           </div>
         </div>
-      </div>
+      </Layout>
     );
   }
 }
