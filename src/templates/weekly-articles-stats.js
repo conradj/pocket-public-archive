@@ -1,7 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Helmet from "react-helmet";
-import PropTypes from "prop-types";
+import Layout from "../components/layout";
 import Metadata from "./metadata";
 import Navigation from "../components/WeekNav";
 import "./weekly-articles-stats.css";
@@ -51,21 +50,21 @@ class WeeklyArticlesStatsTemplate extends React.Component {
     const readTime = parseInt(totalWords / 275);
     const readTimeText = readTime < 2 ? "1 minute" : readTime + " minutes";
     return (
-      <div className="weekly-articles-stats-container">
-        <Navigation currentWeek={thisWeek} />
-        <Metadata
-          totalArticles={totalArticles}
-          favouriteArticles={favouriteArticles}
-          totalWords={totalWords}
-          readTimeText={readTimeText}
-        />
-        <div className="image-thumbs">{imageThumbs}</div>
-      </div>
+      <Layout>
+        <div className="weekly-articles-stats-container">
+          <Navigation currentWeek={thisWeek} />
+          <Metadata
+            totalArticles={totalArticles}
+            favouriteArticles={favouriteArticles}
+            totalWords={totalWords}
+            readTimeText={readTimeText}
+          />
+          <div className="image-thumbs">{imageThumbs}</div>
+        </div>
+      </Layout>
     );
   }
 }
-
-WeeklyArticlesStatsTemplate.propTypes = {};
 
 export default WeeklyArticlesStatsTemplate;
 
