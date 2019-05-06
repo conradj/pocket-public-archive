@@ -18,13 +18,18 @@ const AboutPage = () => (
     </p>
     <p>
       If you want something similar, send me a dm{" "}
-      <a href="https://twitter.com/conradj" target="_blank">
+      <a
+        href="https://twitter.com/conradj"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         @conradj on Twitter
       </a>{" "}
       or{" "}
       <a
         href="https://github.com/conradj/pocket-public-archive"
         target="_blank"
+        rel="noopener noreferrer"
       >
         fork the project
       </a>{" "}
@@ -33,7 +38,7 @@ const AboutPage = () => (
     <h3>What is Pocket?</h3>
     <p>
       I use the{" "}
-      <a href="https://getpocket.com" target="_blank">
+      <a href="https://getpocket.com" target="_blank" rel="noopener noreferrer">
         Pocket
       </a>{" "}
       read it later app a lot. I add loads of articles, and when I get a spare
