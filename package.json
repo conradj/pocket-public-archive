@@ -15,7 +15,7 @@
     "gatsby-plugin-google-fonts": "0.0.4",
     "gatsby-plugin-react-helmet": "^3.0.12",
     "gatsby-plugin-typography": "^2.2.13",
-    "gatsby-source-pocket": "file:../../gatsby-source-pocket-2.3.0.tgz",
+    "gatsby-source-pocket": "^2.3.0",
     "node-getpocket": "^1.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
