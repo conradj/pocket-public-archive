@@ -6,10 +6,6 @@ import Navigation from "../components/WeekNav";
 import "./weekly-articles-stats.css";
 
 class WeeklyArticlesStatsTemplate extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     let totalWords = 0;
     let totalArticles = 0;
@@ -44,6 +40,7 @@ class WeeklyArticlesStatsTemplate extends React.Component {
               />
             );
           }
+          return null;
         })
       : null;
 
