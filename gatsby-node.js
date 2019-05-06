@@ -12,11 +12,10 @@ var format = require("date-fns/format");
 // You can delete this file if you're not using it
 // Implement the Gatsby API “createPages”. This is called once the
 // data layer is bootstrapped to let plugins create pages from data.
-exports.createPages = ({ boundActionCreators, graphql }) => {
-  const { createPage } = boundActionCreators;
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage } = actions;
 
   return new Promise((resolve, reject) => {
-    const readTemplate = path.resolve(`src/templates/read-history.js`);
     const weeklyArticlesTemplate = path.resolve(
       `src/templates/weekly-articles.js`
     );
