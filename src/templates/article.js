@@ -9,13 +9,12 @@ import { faExternalLinkSquareAlt } from "@fortawesome/free-solid-svg-icons/faExt
 class ArticleTemplate extends React.Component {
   saveGAEvent(event) {
     if (process.env.NODE_ENV === "production" && typeof ga === "function") {
-      console.log("waaaah ga!");
-      // ga("send", {
-      //   hitType: "event",
-      //   eventCategory: event.target.hostname,
-      //   eventAction: "read",
-      //   eventLabel: event.target.pathname
-      // });
+      ga("send", {
+        hitType: "event",
+        eventCategory: event.target.hostname,
+        eventAction: "read",
+        eventLabel: event.target.pathname
+      });
     }
   }
 
