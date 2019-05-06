@@ -6,10 +6,6 @@ import Metadata from "./metadata";
 import format from "date-fns/format";
 
 class WeeklyArticlesSummaryTemplate extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     let totalWords = 0;
     let favouriteArticles = 0;
@@ -48,6 +44,7 @@ class WeeklyArticlesSummaryTemplate extends React.Component {
               />
             );
           }
+          return null;
         })
       : null;
 

@@ -15,7 +15,6 @@ class WeeklyArticlesTemplate extends React.Component {
     super(props);
     const renderForScreenshot = this.props.location.search === "?screenshot";
     this.state = {
-      sortType: "favourites",
       renderForScreenshot: renderForScreenshot
     };
   }
@@ -30,7 +29,6 @@ class WeeklyArticlesTemplate extends React.Component {
         1000
     );
     const isData = this.props.data && this.props.data.allPocketArticle;
-    const sortType = this.state.sortType;
     let data;
     if (isData) {
       data = this.props.data.allPocketArticle.edges.sort((a, b) => {
@@ -45,9 +43,6 @@ class WeeklyArticlesTemplate extends React.Component {
       });
       thisWeek = parseInt(data[0].node.readWeek);
     }
-
-    const nextWeek = thisWeek + 604800;
-    const lastWeek = thisWeek - 604800;
     const weekDate = format(new Date(thisWeek * 1000), "Do MMMM YYYY");
 
     const articleList = isData ? (
@@ -63,6 +58,7 @@ class WeeklyArticlesTemplate extends React.Component {
         } else {
           console.warn("Article not loaded", article);
         }
+        return null;
       })
     ) : (
       <div>No Articles read yet this week</div>
@@ -100,21 +96,7 @@ class WeeklyArticlesTemplate extends React.Component {
                   favouriteArticles={favouriteArticles}
                   totalWords={totalWords}
                   readTimeText={readTimeText}
-                >
-                  <div className="week-metadata-sort">
-                    <select
-                      id="sortSelect"
-                      onChange={event =>
-                        this.setState({ sortType: event.target.value })
-                      }
-                      value={this.state.sortType}
-                    >
-                      <option value="favourites">Favourites first</option>
-                      <option value="date">By date</option>
-                      <option value="length">By length</option>
-                    </select>
-                  </div>
-                </Metadata>
+                />
               </header>
               <div>{articleList}</div>
             </div>
