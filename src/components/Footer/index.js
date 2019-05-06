@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "gatsby-link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTwitter } from "@fortawesome/fontawesome-free-brands/faTwitter";
-import { faGithub } from "@fortawesome/fontawesome-free-brands/faGithub";
-import { faExternalLink } from "@fortawesome/fontawesome-free-solid/faExternalLinkSquareAlt";
+import { faTwitter } from "@fortawesome/free-brands-svg-icons/faTwitter";
+import { faGithub } from "@fortawesome/free-brands-svg-icons/faGithub";
+import { faExternalLinkSquareAlt } from "@fortawesome/free-solid-svg-icons/faExternalLinkSquareAlt";
 
 const Footer = () => (
   <nav
@@ -27,7 +27,7 @@ const Footer = () => (
           className="link-effect"
         >
           <span>Conrad Jackson</span>
-          &nbsp;<FontAwesomeIcon icon={faExternalLink} />
+          &nbsp;<FontAwesomeIcon icon={faExternalLinkSquareAlt} />
         </a>
       </h4>
       <span style={{ float: "right" }}>

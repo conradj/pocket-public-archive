@@ -5,8 +5,8 @@ import format from "date-fns/format";
 import startOfWeek from "date-fns/start_of_week";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretLeft } from "@fortawesome/fontawesome-free-solid/faCaretSquareLeft";
-import { faCaretRight } from "@fortawesome/fontawesome-free-solid/faCaretSquareRight";
+import { faCaretSquareLeft } from "@fortawesome/free-solid-svg-icons/faCaretSquareLeft";
+import { faCaretSquareRight } from "@fortawesome/free-solid-svg-icons/faCaretSquareRight";
 
 import "./navigation.css";
 
@@ -23,7 +23,7 @@ class Navigation extends React.Component {
       <nav className="navigation-week">
         <div className="nav-week-title">{currentWeekDate}</div>
         <a href={`../${lastWeek}`} className="nav-week-previous link-effect">
-          <FontAwesomeIcon icon={faCaretLeft} />&nbsp;
+          <FontAwesomeIcon icon={faCaretSquareLeft} />&nbsp;
           <span>Previous</span>
         </a>
         {nextWeek < new Date().getTime() / 1000 ? (
@@ -33,7 +33,7 @@ class Navigation extends React.Component {
           >
             <span>Next</span>
             &nbsp;
-            <FontAwesomeIcon icon={faCaretRight} />
+            <FontAwesomeIcon icon={faCaretSquareRight} />
           </a>
         ) : null}
       </nav>

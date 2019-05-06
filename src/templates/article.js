@@ -4,7 +4,7 @@ import "./article.css";
 import format from "date-fns/format";
 // import PocketButton from "../components/PocketButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faExternalLink } from "@fortawesome/fontawesome-free-solid/faExternalLinkSquareAlt";
+import { faExternalLinkSquareAlt } from "@fortawesome/free-solid-svg-icons/faExternalLinkSquareAlt";
 
 class ArticleTemplate extends React.Component {
   saveGAEvent(event) {
@@ -107,7 +107,7 @@ class ArticleTemplate extends React.Component {
             className="link-effect"
           >
             <span>Read more</span>
-            &nbsp;<FontAwesomeIcon icon={faExternalLink} />
+            &nbsp;<FontAwesomeIcon icon={faExternalLinkSquareAlt} />
           </a>
         </div>
       </div>
