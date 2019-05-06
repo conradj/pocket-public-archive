@@ -1,8 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Link from "gatsby-link";
 import format from "date-fns/format";
-import startOfWeek from "date-fns/start_of_week";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretSquareLeft } from "@fortawesome/free-solid-svg-icons/faCaretSquareLeft";
