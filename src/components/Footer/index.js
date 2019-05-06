@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "gatsby-link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons/faTwitter";
 import { faGithub } from "@fortawesome/free-brands-svg-icons/faGithub";
@@ -25,6 +24,7 @@ const Footer = () => (
           href="https://conradj.co.uk/#contact"
           target="_blank"
           className="link-effect"
+          rel="noopener noreferrer"
         >
           <span>Conrad Jackson</span>
           &nbsp;<FontAwesomeIcon icon={faExternalLinkSquareAlt} />
@@ -35,6 +35,7 @@ const Footer = () => (
           href="https://twitter.com/conradj"
           target="_blank"
           className="link-effect"
+          rel="noopener noreferrer"
         >
           <span>
             <FontAwesomeIcon icon={faTwitter} />
@@ -45,6 +46,7 @@ const Footer = () => (
           href="https://github.com/conradj"
           target="_blank"
           className="link-effect"
+          rel="noopener noreferrer"
         >
           <span>
             <FontAwesomeIcon icon={faGithub} />
