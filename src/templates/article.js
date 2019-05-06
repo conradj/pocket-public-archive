@@ -51,7 +51,11 @@ class ArticleTemplate extends React.Component {
     return (
       <div id={url} className={classNames.join(" ")} style={style}>
         <div className="article-domain">
-          <img className="article-domain-favicon" src={domainFavicon} />
+          <img
+            className="article-domain-favicon"
+            src={domainFavicon}
+            alt={`${articleDomain} favicon`}
+          />
           {articleDomain}
         </div>
         <a
@@ -59,6 +63,7 @@ class ArticleTemplate extends React.Component {
           target="_blank"
           onClick={event => this.saveGAEvent(event)}
           className="article-link"
+          rel="noopener noreferrer"
         >
           <h2 className="article-title">{title}</h2>
         </a>
@@ -86,7 +91,10 @@ class ArticleTemplate extends React.Component {
                   "https://"
                 )})`
               }}
-            />
+              rel="noopener noreferrer"
+            >
+              &nbsp;
+            </a>
             <img
               onError={e => {
                 e.target.src =
@@ -95,6 +103,7 @@ class ArticleTemplate extends React.Component {
                 e.target.style.display = "none";
               }}
               src={image.src.replace(/^http:\/\//i, "https://")}
+              alt={title}
             />
           </div>
         ) : null}
@@ -105,6 +114,7 @@ class ArticleTemplate extends React.Component {
             target="_blank"
             onClick={event => this.saveGAEvent(event)}
             className="link-effect"
+            rel="noopener noreferrer"
           >
             <span>Read more</span>
             &nbsp;<FontAwesomeIcon icon={faExternalLinkSquareAlt} />
