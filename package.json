@@ -11,7 +11,6 @@
     "date-fns": "^1.30.1",
     "dotenv-safe": "^6.1.0",
     "gatsby": "^2.4.2",
-    "gatsby-link": "^2.1.1",
     "gatsby-plugin-google-analytics": "^2.0.19",
     "gatsby-plugin-google-fonts": "0.0.4",
     "gatsby-plugin-react-helmet": "^3.0.12",
@@ -28,15 +27,14 @@
     "typeface-merriweather": "0.0.72",
     "typography": "^0.16.19"
   },
-  "keywords": [
-    "gatsby pocket"
-  ],
+  "keywords": ["gatsby pocket"],
   "license": "MIT",
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --trailing-comma all --no-semi --single-quote --write \"src/**/*.js\"",
+    "format":
+      "prettier --trailing-comma all --no-semi --single-quote --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
