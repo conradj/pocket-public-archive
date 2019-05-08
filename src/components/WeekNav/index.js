@@ -20,14 +20,14 @@ class Navigation extends React.Component {
     return (
       <nav className="navigation-week">
         <div className="nav-week-title">{currentWeekDate}</div>
-        <a href={`../${lastWeek}`} className="nav-week-previous link-effect">
+        <a href={`./${lastWeek}`} className="nav-week-previous link-effect">
           <FontAwesomeIcon icon={faCaretSquareLeft} />&nbsp;
           <span>Previous</span>
         </a>
         {nextWeek < new Date().getTime() / 1000 ? (
           <a
             className="nav-week-next next-week link-effect"
-            href={`../${nextWeek}`}
+            href={`./${nextWeek}`}
           >
             <span>Next</span>
             &nbsp;
