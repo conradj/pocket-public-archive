@@ -77,10 +77,10 @@ class WeeklyArticlesTemplate extends React.Component {
             description={`${totalArticles} articles, ${new Intl.NumberFormat().format(
               totalWords
             )} words`}
-            imageUrl={`https://puppeteer-screenshot.conradsjackson.now.sh/https://conradj.co.uk/weeklyreads/${thisWeek}/summary`}
-            imageAlt={`Week of ${weekDate}: Stories read by @conradj. ${totalArticles} articles, ${new Intl.NumberFormat().format(
+            imageUrl={`https://puppeteer-screenshot.conradsjackson.now.sh/https://conradj.co.uk/weeklyreads/${thisWeek}/summary?width=1000&height=500`}
+            imageAlt={`Stories @conradj has read this week. ${totalArticles} articles, ${new Intl.NumberFormat().format(
               totalWords
-            )} words`}
+            )} words.`}
           />
           <div
             className={`week-container ${
