@@ -20,6 +20,8 @@ const SocialCard = ({ url, title, description, imageUrl, imageAlt }) => (
     <meta property="og:description" content={description} />
     <meta property="og:image" content={imageUrl} />
     <meta property="og:image:alt" content={imageAlt} />
+    <meta property="og:image:width" content="1000" />
+    <meta property="og:image:height" content="500" />
     <meta itemprop="og:headline" content={title} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@conradj" />
