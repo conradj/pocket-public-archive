@@ -21,6 +21,7 @@ class WeeklyArticlesTemplate extends React.Component {
 
   render() {
     const { renderForScreenshot } = this.state;
+    console.log(this.props.location.href);
     let totalWords = 0;
     let totalArticles = 0;
     let favouriteArticles = 0;
@@ -76,9 +77,7 @@ class WeeklyArticlesTemplate extends React.Component {
             description={`${totalArticles} articles, ${new Intl.NumberFormat().format(
               totalWords
             )} words`}
-            imageUrl={`https://conradj.co.uk/weeklyreads/${thisWeek}.png?${Date.parse(
-              new Date()
-            )}`}
+            imageUrl={`https://puppeteer-screenshot.conradsjackson.now.sh/https://conradj.co.uk/weeklyreads/${thisWeek}/summary`}
             imageAlt={`Week of ${weekDate}: Stories read by @conradj. ${totalArticles} articles, ${new Intl.NumberFormat().format(
               totalWords
             )} words`}
