@@ -11,6 +11,8 @@ const SocialCard = ({ url, title, description, imageUrl, imageAlt }) => (
     <meta name="og:description" content={description} />
     <meta name="og:image" content={imageUrl} />
     <meta name="og:image:alt" content={imageAlt} />
+    <meta name="og:image:width" content="1000" />
+    <meta name="og:image:height" content="500" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content={url} />
     <meta property="og:headline" content={title} />
