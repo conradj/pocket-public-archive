@@ -21,7 +21,7 @@ class WeeklyArticlesTemplate extends React.Component {
 
   render() {
     const { renderForScreenshot } = this.state;
-    console.log(this.props.location.href);
+
     let totalWords = 0;
     let totalArticles = 0;
     let favouriteArticles = 0;
@@ -42,6 +42,8 @@ class WeeklyArticlesTemplate extends React.Component {
         }
         return b.node.word_count - a.node.word_count;
       });
+      console.log("summary article count", data.length);
+      console.log("data[0]", data[0]);
       thisWeek = parseInt(data[0].node.readWeek);
     }
     const weekDate = format(new Date(thisWeek * 1000), "Do MMMM YYYY");
